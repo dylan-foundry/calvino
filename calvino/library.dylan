@@ -8,5 +8,10 @@ define library calvino
 
   use calvino-gl, export { calvino-gl };
   use calvino-math, export { calvino-math };
+  use calvino-reactive, export { calvino-reactive };
+
+  export calvino-gl;
+  export calvino-math;
+  export calvino-reactive;
 end library;
 
