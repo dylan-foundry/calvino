@@ -6,12 +6,7 @@ define library calvino
   use dylan;
   use common-dylan;
 
-  use calvino-gl, export { calvino-gl };
-  use calvino-math, export { calvino-math };
-  use calvino-reactive, export { calvino-reactive };
-
-  export calvino-gl;
-  export calvino-math;
-  export calvino-reactive;
+  use calvino-gl, export: { calvino-gl };
+  use calvino-math, export: { calvino-math };
+  use calvino-reactive, export: { calvino-reactive };
 end library;
-
