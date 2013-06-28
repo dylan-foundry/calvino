@@ -3,10 +3,7 @@ synopsis: bindings for the glfw3 library
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
-define constant <anonymous-583> = <C-function-pointer>;
-define C-pointer-type <anonymous-583*> => <anonymous-583>;
-define constant <GLFWglproc> = <anonymous-583*>;
-
+define constant <GLFWglproc> = <C-function-pointer>;
 define C-struct <GLFWmonitor>
 end;
 
@@ -14,68 +11,23 @@ define C-struct <GLFWwindow>
 end;
 
 define C-pointer-type <c-string> => <C-signed-char>;
-define constant <anonymous-584> = <C-function-pointer>;
-define C-pointer-type <anonymous-584*> => <anonymous-584>;
-define constant <GLFWerrorfun> = <anonymous-584*>;
-
+define constant <GLFWerrorfun> = <C-function-pointer>;
 define C-pointer-type <GLFWwindow*> => <GLFWwindow>;
-define constant <anonymous-585> = <C-function-pointer>;
-define C-pointer-type <anonymous-585*> => <anonymous-585>;
-define constant <GLFWwindowposfun> = <anonymous-585*>;
-
-define constant <anonymous-586> = <C-function-pointer>;
-define C-pointer-type <anonymous-586*> => <anonymous-586>;
-define constant <GLFWwindowsizefun> = <anonymous-586*>;
-
-define constant <anonymous-587> = <C-function-pointer>;
-define C-pointer-type <anonymous-587*> => <anonymous-587>;
-define constant <GLFWwindowclosefun> = <anonymous-587*>;
-
-define constant <anonymous-588> = <C-function-pointer>;
-define C-pointer-type <anonymous-588*> => <anonymous-588>;
-define constant <GLFWwindowrefreshfun> = <anonymous-588*>;
-
-define constant <anonymous-589> = <C-function-pointer>;
-define C-pointer-type <anonymous-589*> => <anonymous-589>;
-define constant <GLFWwindowfocusfun> = <anonymous-589*>;
-
-define constant <anonymous-590> = <C-function-pointer>;
-define C-pointer-type <anonymous-590*> => <anonymous-590>;
-define constant <GLFWwindowiconifyfun> = <anonymous-590*>;
-
-define constant <anonymous-591> = <C-function-pointer>;
-define C-pointer-type <anonymous-591*> => <anonymous-591>;
-define constant <GLFWframebuffersizefun> = <anonymous-591*>;
-
-define constant <anonymous-592> = <C-function-pointer>;
-define C-pointer-type <anonymous-592*> => <anonymous-592>;
-define constant <GLFWmousebuttonfun> = <anonymous-592*>;
-
-define constant <anonymous-593> = <C-function-pointer>;
-define C-pointer-type <anonymous-593*> => <anonymous-593>;
-define constant <GLFWcursorposfun> = <anonymous-593*>;
-
-define constant <anonymous-594> = <C-function-pointer>;
-define C-pointer-type <anonymous-594*> => <anonymous-594>;
-define constant <GLFWcursorenterfun> = <anonymous-594*>;
-
-define constant <anonymous-595> = <C-function-pointer>;
-define C-pointer-type <anonymous-595*> => <anonymous-595>;
-define constant <GLFWscrollfun> = <anonymous-595*>;
-
-define constant <anonymous-596> = <C-function-pointer>;
-define C-pointer-type <anonymous-596*> => <anonymous-596>;
-define constant <GLFWkeyfun> = <anonymous-596*>;
-
-define constant <anonymous-597> = <C-function-pointer>;
-define C-pointer-type <anonymous-597*> => <anonymous-597>;
-define constant <GLFWcharfun> = <anonymous-597*>;
-
+define constant <GLFWwindowposfun> = <C-function-pointer>;
+define constant <GLFWwindowsizefun> = <C-function-pointer>;
+define constant <GLFWwindowclosefun> = <C-function-pointer>;
+define constant <GLFWwindowrefreshfun> = <C-function-pointer>;
+define constant <GLFWwindowfocusfun> = <C-function-pointer>;
+define constant <GLFWwindowiconifyfun> = <C-function-pointer>;
+define constant <GLFWframebuffersizefun> = <C-function-pointer>;
+define constant <GLFWmousebuttonfun> = <C-function-pointer>;
+define constant <GLFWcursorposfun> = <C-function-pointer>;
+define constant <GLFWcursorenterfun> = <C-function-pointer>;
+define constant <GLFWscrollfun> = <C-function-pointer>;
+define constant <GLFWkeyfun> = <C-function-pointer>;
+define constant <GLFWcharfun> = <C-function-pointer>;
 define C-pointer-type <GLFWmonitor*> => <GLFWmonitor>;
-define constant <anonymous-598> = <C-function-pointer>;
-define C-pointer-type <anonymous-598*> => <anonymous-598>;
-define constant <GLFWmonitorfun> = <anonymous-598*>;
-
+define constant <GLFWmonitorfun> = <C-function-pointer>;
 define C-struct <GLFWvidmode>
   slot GLFWvidmode$width :: <C-signed-int>;
   slot GLFWvidmode$height :: <C-signed-int>;
