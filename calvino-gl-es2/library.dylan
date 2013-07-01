@@ -2,15 +2,15 @@ module: dylan-user
 author: Bruce Mitchener, Jr.
 copyright: See LICENSE file in this distribution.
 
-define library calvino-gles2
+define library calvino-gl-es2
   use dylan;
   use common-dylan;
   use c-ffi;
 
-  export calvino-gles2;
+  export calvino-gl-es2;
 end library;
 
-define module calvino-gles2
+define module calvino-gl-es2
   use common-dylan;
   use c-ffi;
 
