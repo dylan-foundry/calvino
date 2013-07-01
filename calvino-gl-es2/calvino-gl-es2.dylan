@@ -40,186 +40,186 @@ define constant <GLintptr> = <C-signed-long>;
 define constant <GLsizeiptr> = <C-signed-long>;
 
 define C-function glActiveTexture
-  input parameter texture :: <GLenum>;
+  input parameter texture_ :: <GLenum>;
   c-name: "glActiveTexture";
 end;
 
 define C-function glAttachShader
-  input parameter program :: <GLuint>;
-  input parameter shader :: <GLuint>;
+  input parameter program_ :: <GLuint>;
+  input parameter shader_ :: <GLuint>;
   c-name: "glAttachShader";
 end;
 
 define C-pointer-type <GLchar*> => <GLchar>;
 define C-function glBindAttribLocation
-  input parameter program :: <GLuint>;
-  input parameter index :: <GLuint>;
-  input parameter name :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter index_ :: <GLuint>;
+  input parameter name_ :: <GLchar*>;
   c-name: "glBindAttribLocation";
 end;
 
 define C-function glBindBuffer
-  input parameter target :: <GLenum>;
-  input parameter buffer :: <GLuint>;
+  input parameter target_ :: <GLenum>;
+  input parameter buffer_ :: <GLuint>;
   c-name: "glBindBuffer";
 end;
 
 define C-function glBindFramebuffer
-  input parameter target :: <GLenum>;
-  input parameter framebuffer :: <GLuint>;
+  input parameter target_ :: <GLenum>;
+  input parameter framebuffer_ :: <GLuint>;
   c-name: "glBindFramebuffer";
 end;
 
 define C-function glBindRenderbuffer
-  input parameter target :: <GLenum>;
-  input parameter renderbuffer :: <GLuint>;
+  input parameter target_ :: <GLenum>;
+  input parameter renderbuffer_ :: <GLuint>;
   c-name: "glBindRenderbuffer";
 end;
 
 define C-function glBindTexture
-  input parameter target :: <GLenum>;
-  input parameter texture :: <GLuint>;
+  input parameter target_ :: <GLenum>;
+  input parameter texture_ :: <GLuint>;
   c-name: "glBindTexture";
 end;
 
 define C-function glBlendColor
-  input parameter red :: <GLclampf>;
-  input parameter green :: <GLclampf>;
-  input parameter blue :: <GLclampf>;
-  input parameter alpha :: <GLclampf>;
+  input parameter red_ :: <GLclampf>;
+  input parameter green_ :: <GLclampf>;
+  input parameter blue_ :: <GLclampf>;
+  input parameter alpha_ :: <GLclampf>;
   c-name: "glBlendColor";
 end;
 
 define C-function glBlendEquation
-  input parameter mode :: <GLenum>;
+  input parameter mode_ :: <GLenum>;
   c-name: "glBlendEquation";
 end;
 
 define C-function glBlendEquationSeparate
-  input parameter modeRGB :: <GLenum>;
-  input parameter modeAlpha :: <GLenum>;
+  input parameter modeRGB_ :: <GLenum>;
+  input parameter modeAlpha_ :: <GLenum>;
   c-name: "glBlendEquationSeparate";
 end;
 
 define C-function glBlendFunc
-  input parameter sfactor :: <GLenum>;
-  input parameter dfactor :: <GLenum>;
+  input parameter sfactor_ :: <GLenum>;
+  input parameter dfactor_ :: <GLenum>;
   c-name: "glBlendFunc";
 end;
 
 define C-function glBlendFuncSeparate
-  input parameter srcRGB :: <GLenum>;
-  input parameter dstRGB :: <GLenum>;
-  input parameter srcAlpha :: <GLenum>;
-  input parameter dstAlpha :: <GLenum>;
+  input parameter srcRGB_ :: <GLenum>;
+  input parameter dstRGB_ :: <GLenum>;
+  input parameter srcAlpha_ :: <GLenum>;
+  input parameter dstAlpha_ :: <GLenum>;
   c-name: "glBlendFuncSeparate";
 end;
 
 define C-pointer-type <GLvoid*> => <GLvoid>;
 define C-function glBufferData
-  input parameter target :: <GLenum>;
-  input parameter size :: <GLsizeiptr>;
-  input parameter data :: <GLvoid*>;
-  input parameter usage :: <GLenum>;
+  input parameter target_ :: <GLenum>;
+  input parameter size_ :: <GLsizeiptr>;
+  input parameter data_ :: <GLvoid*>;
+  input parameter usage_ :: <GLenum>;
   c-name: "glBufferData";
 end;
 
 define C-function glBufferSubData
-  input parameter target :: <GLenum>;
-  input parameter offset :: <GLintptr>;
-  input parameter size :: <GLsizeiptr>;
-  input parameter data :: <GLvoid*>;
+  input parameter target_ :: <GLenum>;
+  input parameter offset_ :: <GLintptr>;
+  input parameter size_ :: <GLsizeiptr>;
+  input parameter data_ :: <GLvoid*>;
   c-name: "glBufferSubData";
 end;
 
 define C-function glCheckFramebufferStatus
-  input parameter target :: <GLenum>;
+  input parameter target_ :: <GLenum>;
   result res :: <GLenum>;
   c-name: "glCheckFramebufferStatus";
 end;
 
 define C-function glClear
-  input parameter mask :: <GLbitfield>;
+  input parameter mask_ :: <GLbitfield>;
   c-name: "glClear";
 end;
 
 define C-function glClearColor
-  input parameter red :: <GLclampf>;
-  input parameter green :: <GLclampf>;
-  input parameter blue :: <GLclampf>;
-  input parameter alpha :: <GLclampf>;
+  input parameter red_ :: <GLclampf>;
+  input parameter green_ :: <GLclampf>;
+  input parameter blue_ :: <GLclampf>;
+  input parameter alpha_ :: <GLclampf>;
   c-name: "glClearColor";
 end;
 
 define C-function glClearDepthf
-  input parameter depth :: <GLclampf>;
+  input parameter depth_ :: <GLclampf>;
   c-name: "glClearDepthf";
 end;
 
 define C-function glClearStencil
-  input parameter s :: <GLint>;
+  input parameter s_ :: <GLint>;
   c-name: "glClearStencil";
 end;
 
 define C-function glColorMask
-  input parameter red :: <GLboolean>;
-  input parameter green :: <GLboolean>;
-  input parameter blue :: <GLboolean>;
-  input parameter alpha :: <GLboolean>;
+  input parameter red_ :: <GLboolean>;
+  input parameter green_ :: <GLboolean>;
+  input parameter blue_ :: <GLboolean>;
+  input parameter alpha_ :: <GLboolean>;
   c-name: "glColorMask";
 end;
 
 define C-function glCompileShader
-  input parameter shader :: <GLuint>;
+  input parameter shader_ :: <GLuint>;
   c-name: "glCompileShader";
 end;
 
 define C-function glCompressedTexImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter internalformat :: <GLenum>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter border :: <GLint>;
-  input parameter imageSize :: <GLsizei>;
-  input parameter data :: <GLvoid*>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter internalformat_ :: <GLenum>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter border_ :: <GLint>;
+  input parameter imageSize_ :: <GLsizei>;
+  input parameter data_ :: <GLvoid*>;
   c-name: "glCompressedTexImage2D";
 end;
 
 define C-function glCompressedTexSubImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter xoffset :: <GLint>;
-  input parameter yoffset :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter format :: <GLenum>;
-  input parameter imageSize :: <GLsizei>;
-  input parameter data :: <GLvoid*>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter xoffset_ :: <GLint>;
+  input parameter yoffset_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter format_ :: <GLenum>;
+  input parameter imageSize_ :: <GLsizei>;
+  input parameter data_ :: <GLvoid*>;
   c-name: "glCompressedTexSubImage2D";
 end;
 
 define C-function glCopyTexImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter internalformat :: <GLenum>;
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter border :: <GLint>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter internalformat_ :: <GLenum>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter border_ :: <GLint>;
   c-name: "glCopyTexImage2D";
 end;
 
 define C-function glCopyTexSubImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter xoffset :: <GLint>;
-  input parameter yoffset :: <GLint>;
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter xoffset_ :: <GLint>;
+  input parameter yoffset_ :: <GLint>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
   c-name: "glCopyTexSubImage2D";
 end;
 
@@ -229,105 +229,105 @@ define C-function glCreateProgram
 end;
 
 define C-function glCreateShader
-  input parameter type :: <GLenum>;
+  input parameter type_ :: <GLenum>;
   result res :: <GLuint>;
   c-name: "glCreateShader";
 end;
 
 define C-function glCullFace
-  input parameter mode :: <GLenum>;
+  input parameter mode_ :: <GLenum>;
   c-name: "glCullFace";
 end;
 
 define C-pointer-type <GLuint*> => <GLuint>;
 define C-function glDeleteBuffers
-  input parameter n :: <GLsizei>;
-  input parameter buffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter buffers_ :: <GLuint*>;
   c-name: "glDeleteBuffers";
 end;
 
 define C-function glDeleteFramebuffers
-  input parameter n :: <GLsizei>;
-  input parameter framebuffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter framebuffers_ :: <GLuint*>;
   c-name: "glDeleteFramebuffers";
 end;
 
 define C-function glDeleteProgram
-  input parameter program :: <GLuint>;
+  input parameter program_ :: <GLuint>;
   c-name: "glDeleteProgram";
 end;
 
 define C-function glDeleteRenderbuffers
-  input parameter n :: <GLsizei>;
-  input parameter renderbuffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter renderbuffers_ :: <GLuint*>;
   c-name: "glDeleteRenderbuffers";
 end;
 
 define C-function glDeleteShader
-  input parameter shader :: <GLuint>;
+  input parameter shader_ :: <GLuint>;
   c-name: "glDeleteShader";
 end;
 
 define C-function glDeleteTextures
-  input parameter n :: <GLsizei>;
-  input parameter textures :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter textures_ :: <GLuint*>;
   c-name: "glDeleteTextures";
 end;
 
 define C-function glDepthFunc
-  input parameter func :: <GLenum>;
+  input parameter func_ :: <GLenum>;
   c-name: "glDepthFunc";
 end;
 
 define C-function glDepthMask
-  input parameter flag :: <GLboolean>;
+  input parameter flag_ :: <GLboolean>;
   c-name: "glDepthMask";
 end;
 
 define C-function glDepthRangef
-  input parameter zNear :: <GLclampf>;
-  input parameter zFar :: <GLclampf>;
+  input parameter zNear_ :: <GLclampf>;
+  input parameter zFar_ :: <GLclampf>;
   c-name: "glDepthRangef";
 end;
 
 define C-function glDetachShader
-  input parameter program :: <GLuint>;
-  input parameter shader :: <GLuint>;
+  input parameter program_ :: <GLuint>;
+  input parameter shader_ :: <GLuint>;
   c-name: "glDetachShader";
 end;
 
 define C-function glDisable
-  input parameter cap :: <GLenum>;
+  input parameter cap_ :: <GLenum>;
   c-name: "glDisable";
 end;
 
 define C-function glDisableVertexAttribArray
-  input parameter index :: <GLuint>;
+  input parameter index_ :: <GLuint>;
   c-name: "glDisableVertexAttribArray";
 end;
 
 define C-function glDrawArrays
-  input parameter mode :: <GLenum>;
-  input parameter first :: <GLint>;
-  input parameter count :: <GLsizei>;
+  input parameter mode_ :: <GLenum>;
+  input parameter first_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
   c-name: "glDrawArrays";
 end;
 
 define C-function glDrawElements
-  input parameter mode :: <GLenum>;
-  input parameter count :: <GLsizei>;
-  input parameter type :: <GLenum>;
-  input parameter indices :: <GLvoid*>;
+  input parameter mode_ :: <GLenum>;
+  input parameter count_ :: <GLsizei>;
+  input parameter type_ :: <GLenum>;
+  input parameter indices_ :: <GLvoid*>;
   c-name: "glDrawElements";
 end;
 
 define C-function glEnable
-  input parameter cap :: <GLenum>;
+  input parameter cap_ :: <GLenum>;
   c-name: "glEnable";
 end;
 
 define C-function glEnableVertexAttribArray
-  input parameter index :: <GLuint>;
+  input parameter index_ :: <GLuint>;
   c-name: "glEnableVertexAttribArray";
 end;
 
@@ -340,53 +340,53 @@ define C-function glFlush
 end;
 
 define C-function glFramebufferRenderbuffer
-  input parameter target :: <GLenum>;
-  input parameter attachment :: <GLenum>;
-  input parameter renderbuffertarget :: <GLenum>;
-  input parameter renderbuffer :: <GLuint>;
+  input parameter target_ :: <GLenum>;
+  input parameter attachment_ :: <GLenum>;
+  input parameter renderbuffertarget_ :: <GLenum>;
+  input parameter renderbuffer_ :: <GLuint>;
   c-name: "glFramebufferRenderbuffer";
 end;
 
 define C-function glFramebufferTexture2D
-  input parameter target :: <GLenum>;
-  input parameter attachment :: <GLenum>;
-  input parameter textarget :: <GLenum>;
-  input parameter texture :: <GLuint>;
-  input parameter level :: <GLint>;
+  input parameter target_ :: <GLenum>;
+  input parameter attachment_ :: <GLenum>;
+  input parameter textarget_ :: <GLenum>;
+  input parameter texture_ :: <GLuint>;
+  input parameter level_ :: <GLint>;
   c-name: "glFramebufferTexture2D";
 end;
 
 define C-function glFrontFace
-  input parameter mode :: <GLenum>;
+  input parameter mode_ :: <GLenum>;
   c-name: "glFrontFace";
 end;
 
 define C-function glGenBuffers
-  input parameter n :: <GLsizei>;
-  input parameter buffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter buffers_ :: <GLuint*>;
   c-name: "glGenBuffers";
 end;
 
 define C-function glGenerateMipmap
-  input parameter target :: <GLenum>;
+  input parameter target_ :: <GLenum>;
   c-name: "glGenerateMipmap";
 end;
 
 define C-function glGenFramebuffers
-  input parameter n :: <GLsizei>;
-  input parameter framebuffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter framebuffers_ :: <GLuint*>;
   c-name: "glGenFramebuffers";
 end;
 
 define C-function glGenRenderbuffers
-  input parameter n :: <GLsizei>;
-  input parameter renderbuffers :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter renderbuffers_ :: <GLuint*>;
   c-name: "glGenRenderbuffers";
 end;
 
 define C-function glGenTextures
-  input parameter n :: <GLsizei>;
-  input parameter textures :: <GLuint*>;
+  input parameter n_ :: <GLsizei>;
+  input parameter textures_ :: <GLuint*>;
   c-name: "glGenTextures";
 end;
 
@@ -394,53 +394,53 @@ define C-pointer-type <GLsizei*> => <GLsizei>;
 define C-pointer-type <GLint*> => <GLint>;
 define C-pointer-type <GLenum*> => <GLenum>;
 define C-function glGetActiveAttrib
-  input parameter program :: <GLuint>;
-  input parameter index :: <GLuint>;
-  input parameter bufsize :: <GLsizei>;
-  input parameter length :: <GLsizei*>;
-  input parameter size :: <GLint*>;
-  input parameter type :: <GLenum*>;
-  input parameter name :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter index_ :: <GLuint>;
+  input parameter bufsize_ :: <GLsizei>;
+  input parameter length_ :: <GLsizei*>;
+  input parameter size_ :: <GLint*>;
+  input parameter type_ :: <GLenum*>;
+  input parameter name_ :: <GLchar*>;
   c-name: "glGetActiveAttrib";
 end;
 
 define C-function glGetActiveUniform
-  input parameter program :: <GLuint>;
-  input parameter index :: <GLuint>;
-  input parameter bufsize :: <GLsizei>;
-  input parameter length :: <GLsizei*>;
-  input parameter size :: <GLint*>;
-  input parameter type :: <GLenum*>;
-  input parameter name :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter index_ :: <GLuint>;
+  input parameter bufsize_ :: <GLsizei>;
+  input parameter length_ :: <GLsizei*>;
+  input parameter size_ :: <GLint*>;
+  input parameter type_ :: <GLenum*>;
+  input parameter name_ :: <GLchar*>;
   c-name: "glGetActiveUniform";
 end;
 
 define C-function glGetAttachedShaders
-  input parameter program :: <GLuint>;
-  input parameter maxcount :: <GLsizei>;
-  input parameter count :: <GLsizei*>;
-  input parameter shaders :: <GLuint*>;
+  input parameter program_ :: <GLuint>;
+  input parameter maxcount_ :: <GLsizei>;
+  input parameter count_ :: <GLsizei*>;
+  input parameter shaders_ :: <GLuint*>;
   c-name: "glGetAttachedShaders";
 end;
 
 define C-function glGetAttribLocation
-  input parameter program :: <GLuint>;
-  input parameter name :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter name_ :: <GLchar*>;
   result res :: <C-signed-int>;
   c-name: "glGetAttribLocation";
 end;
 
 define C-pointer-type <GLboolean*> => <GLboolean>;
 define C-function glGetBooleanv
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLboolean*>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLboolean*>;
   c-name: "glGetBooleanv";
 end;
 
 define C-function glGetBufferParameteriv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetBufferParameteriv";
 end;
 
@@ -451,220 +451,220 @@ end;
 
 define C-pointer-type <GLfloat*> => <GLfloat>;
 define C-function glGetFloatv
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLfloat*>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLfloat*>;
   c-name: "glGetFloatv";
 end;
 
 define C-function glGetFramebufferAttachmentParameteriv
-  input parameter target :: <GLenum>;
-  input parameter attachment :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter target_ :: <GLenum>;
+  input parameter attachment_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetFramebufferAttachmentParameteriv";
 end;
 
 define C-function glGetIntegerv
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetIntegerv";
 end;
 
 define C-function glGetProgramiv
-  input parameter program :: <GLuint>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter program_ :: <GLuint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetProgramiv";
 end;
 
 define C-function glGetProgramInfoLog
-  input parameter program :: <GLuint>;
-  input parameter bufsize :: <GLsizei>;
-  input parameter length :: <GLsizei*>;
-  input parameter infolog :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter bufsize_ :: <GLsizei>;
+  input parameter length_ :: <GLsizei*>;
+  input parameter infolog_ :: <GLchar*>;
   c-name: "glGetProgramInfoLog";
 end;
 
 define C-function glGetRenderbufferParameteriv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetRenderbufferParameteriv";
 end;
 
 define C-function glGetShaderiv
-  input parameter shader :: <GLuint>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter shader_ :: <GLuint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetShaderiv";
 end;
 
 define C-function glGetShaderInfoLog
-  input parameter shader :: <GLuint>;
-  input parameter bufsize :: <GLsizei>;
-  input parameter length :: <GLsizei*>;
-  input parameter infolog :: <GLchar*>;
+  input parameter shader_ :: <GLuint>;
+  input parameter bufsize_ :: <GLsizei>;
+  input parameter length_ :: <GLsizei*>;
+  input parameter infolog_ :: <GLchar*>;
   c-name: "glGetShaderInfoLog";
 end;
 
 define C-function glGetShaderPrecisionFormat
-  input parameter shadertype :: <GLenum>;
-  input parameter precisiontype :: <GLenum>;
-  input parameter range :: <GLint*>;
-  input parameter precision :: <GLint*>;
+  input parameter shadertype_ :: <GLenum>;
+  input parameter precisiontype_ :: <GLenum>;
+  input parameter range_ :: <GLint*>;
+  input parameter precision_ :: <GLint*>;
   c-name: "glGetShaderPrecisionFormat";
 end;
 
 define C-function glGetShaderSource
-  input parameter shader :: <GLuint>;
-  input parameter bufsize :: <GLsizei>;
-  input parameter length :: <GLsizei*>;
-  input parameter source :: <GLchar*>;
+  input parameter shader_ :: <GLuint>;
+  input parameter bufsize_ :: <GLsizei>;
+  input parameter length_ :: <GLsizei*>;
+  input parameter source_ :: <GLchar*>;
   c-name: "glGetShaderSource";
 end;
 
 define C-pointer-type <GLubyte*> => <GLubyte>;
 define C-function glGetString
-  input parameter name :: <GLenum>;
+  input parameter name_ :: <GLenum>;
   result res :: <GLubyte*>;
   c-name: "glGetString";
 end;
 
 define C-function glGetTexParameterfv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLfloat*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLfloat*>;
   c-name: "glGetTexParameterfv";
 end;
 
 define C-function glGetTexParameteriv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetTexParameteriv";
 end;
 
 define C-function glGetUniformfv
-  input parameter program :: <GLuint>;
-  input parameter location :: <GLint>;
-  input parameter params :: <GLfloat*>;
+  input parameter program_ :: <GLuint>;
+  input parameter location_ :: <GLint>;
+  input parameter params_ :: <GLfloat*>;
   c-name: "glGetUniformfv";
 end;
 
 define C-function glGetUniformiv
-  input parameter program :: <GLuint>;
-  input parameter location :: <GLint>;
-  input parameter params :: <GLint*>;
+  input parameter program_ :: <GLuint>;
+  input parameter location_ :: <GLint>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetUniformiv";
 end;
 
 define C-function glGetUniformLocation
-  input parameter program :: <GLuint>;
-  input parameter name :: <GLchar*>;
+  input parameter program_ :: <GLuint>;
+  input parameter name_ :: <GLchar*>;
   result res :: <C-signed-int>;
   c-name: "glGetUniformLocation";
 end;
 
 define C-function glGetVertexAttribfv
-  input parameter index :: <GLuint>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLfloat*>;
+  input parameter index_ :: <GLuint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLfloat*>;
   c-name: "glGetVertexAttribfv";
 end;
 
 define C-function glGetVertexAttribiv
-  input parameter index :: <GLuint>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter index_ :: <GLuint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glGetVertexAttribiv";
 end;
 
 define C-pointer-type <GLvoid**> => <GLvoid*>;
 define C-function glGetVertexAttribPointerv
-  input parameter index :: <GLuint>;
-  input parameter pname :: <GLenum>;
-  input parameter pointer :: <GLvoid**>;
+  input parameter index_ :: <GLuint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter pointer_ :: <GLvoid**>;
   c-name: "glGetVertexAttribPointerv";
 end;
 
 define C-function glHint
-  input parameter target :: <GLenum>;
-  input parameter mode :: <GLenum>;
+  input parameter target_ :: <GLenum>;
+  input parameter mode_ :: <GLenum>;
   c-name: "glHint";
 end;
 
 define C-function glIsBuffer
-  input parameter buffer :: <GLuint>;
+  input parameter buffer_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsBuffer";
 end;
 
 define C-function glIsEnabled
-  input parameter cap :: <GLenum>;
+  input parameter cap_ :: <GLenum>;
   result res :: <GLboolean>;
   c-name: "glIsEnabled";
 end;
 
 define C-function glIsFramebuffer
-  input parameter framebuffer :: <GLuint>;
+  input parameter framebuffer_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsFramebuffer";
 end;
 
 define C-function glIsProgram
-  input parameter program :: <GLuint>;
+  input parameter program_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsProgram";
 end;
 
 define C-function glIsRenderbuffer
-  input parameter renderbuffer :: <GLuint>;
+  input parameter renderbuffer_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsRenderbuffer";
 end;
 
 define C-function glIsShader
-  input parameter shader :: <GLuint>;
+  input parameter shader_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsShader";
 end;
 
 define C-function glIsTexture
-  input parameter texture :: <GLuint>;
+  input parameter texture_ :: <GLuint>;
   result res :: <GLboolean>;
   c-name: "glIsTexture";
 end;
 
 define C-function glLineWidth
-  input parameter width :: <GLfloat>;
+  input parameter width_ :: <GLfloat>;
   c-name: "glLineWidth";
 end;
 
 define C-function glLinkProgram
-  input parameter program :: <GLuint>;
+  input parameter program_ :: <GLuint>;
   c-name: "glLinkProgram";
 end;
 
 define C-function glPixelStorei
-  input parameter pname :: <GLenum>;
-  input parameter param :: <GLint>;
+  input parameter pname_ :: <GLenum>;
+  input parameter param_ :: <GLint>;
   c-name: "glPixelStorei";
 end;
 
 define C-function glPolygonOffset
-  input parameter factor :: <GLfloat>;
-  input parameter units :: <GLfloat>;
+  input parameter factor_ :: <GLfloat>;
+  input parameter units_ :: <GLfloat>;
   c-name: "glPolygonOffset";
 end;
 
 define C-function glReadPixels
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter format :: <GLenum>;
-  input parameter type :: <GLenum>;
-  input parameter pixels :: <GLvoid*>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter format_ :: <GLenum>;
+  input parameter type_ :: <GLenum>;
+  input parameter pixels_ :: <GLvoid*>;
   c-name: "glReadPixels";
 end;
 
@@ -673,359 +673,359 @@ define C-function glReleaseShaderCompiler
 end;
 
 define C-function glRenderbufferStorage
-  input parameter target :: <GLenum>;
-  input parameter internalformat :: <GLenum>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
+  input parameter target_ :: <GLenum>;
+  input parameter internalformat_ :: <GLenum>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
   c-name: "glRenderbufferStorage";
 end;
 
 define C-function glSampleCoverage
-  input parameter value :: <GLclampf>;
-  input parameter invert :: <GLboolean>;
+  input parameter value_ :: <GLclampf>;
+  input parameter invert_ :: <GLboolean>;
   c-name: "glSampleCoverage";
 end;
 
 define C-function glScissor
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
   c-name: "glScissor";
 end;
 
 define C-function glShaderBinary
-  input parameter n :: <GLsizei>;
-  input parameter shaders :: <GLuint*>;
-  input parameter binaryformat :: <GLenum>;
-  input parameter binary :: <GLvoid*>;
-  input parameter length :: <GLsizei>;
+  input parameter n_ :: <GLsizei>;
+  input parameter shaders_ :: <GLuint*>;
+  input parameter binaryformat_ :: <GLenum>;
+  input parameter binary_ :: <GLvoid*>;
+  input parameter length_ :: <GLsizei>;
   c-name: "glShaderBinary";
 end;
 
 define C-pointer-type <GLchar**> => <GLchar*>;
 define C-function glShaderSource
-  input parameter shader :: <GLuint>;
-  input parameter count :: <GLsizei>;
-  input parameter string :: <GLchar**>;
-  input parameter length :: <GLint*>;
+  input parameter shader_ :: <GLuint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter string_ :: <GLchar**>;
+  input parameter length_ :: <GLint*>;
   c-name: "glShaderSource";
 end;
 
 define C-function glStencilFunc
-  input parameter func :: <GLenum>;
-  input parameter ref :: <GLint>;
-  input parameter mask :: <GLuint>;
+  input parameter func_ :: <GLenum>;
+  input parameter ref_ :: <GLint>;
+  input parameter mask_ :: <GLuint>;
   c-name: "glStencilFunc";
 end;
 
 define C-function glStencilFuncSeparate
-  input parameter face :: <GLenum>;
-  input parameter func :: <GLenum>;
-  input parameter ref :: <GLint>;
-  input parameter mask :: <GLuint>;
+  input parameter face_ :: <GLenum>;
+  input parameter func_ :: <GLenum>;
+  input parameter ref_ :: <GLint>;
+  input parameter mask_ :: <GLuint>;
   c-name: "glStencilFuncSeparate";
 end;
 
 define C-function glStencilMask
-  input parameter mask :: <GLuint>;
+  input parameter mask_ :: <GLuint>;
   c-name: "glStencilMask";
 end;
 
 define C-function glStencilMaskSeparate
-  input parameter face :: <GLenum>;
-  input parameter mask :: <GLuint>;
+  input parameter face_ :: <GLenum>;
+  input parameter mask_ :: <GLuint>;
   c-name: "glStencilMaskSeparate";
 end;
 
 define C-function glStencilOp
-  input parameter fail :: <GLenum>;
-  input parameter zfail :: <GLenum>;
-  input parameter zpass :: <GLenum>;
+  input parameter fail_ :: <GLenum>;
+  input parameter zfail_ :: <GLenum>;
+  input parameter zpass_ :: <GLenum>;
   c-name: "glStencilOp";
 end;
 
 define C-function glStencilOpSeparate
-  input parameter face :: <GLenum>;
-  input parameter fail :: <GLenum>;
-  input parameter zfail :: <GLenum>;
-  input parameter zpass :: <GLenum>;
+  input parameter face_ :: <GLenum>;
+  input parameter fail_ :: <GLenum>;
+  input parameter zfail_ :: <GLenum>;
+  input parameter zpass_ :: <GLenum>;
   c-name: "glStencilOpSeparate";
 end;
 
 define C-function glTexImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter internalformat :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter border :: <GLint>;
-  input parameter format :: <GLenum>;
-  input parameter type :: <GLenum>;
-  input parameter pixels :: <GLvoid*>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter internalformat_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter border_ :: <GLint>;
+  input parameter format_ :: <GLenum>;
+  input parameter type_ :: <GLenum>;
+  input parameter pixels_ :: <GLvoid*>;
   c-name: "glTexImage2D";
 end;
 
 define C-function glTexParameterf
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter param :: <GLfloat>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter param_ :: <GLfloat>;
   c-name: "glTexParameterf";
 end;
 
 define C-function glTexParameterfv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLfloat*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLfloat*>;
   c-name: "glTexParameterfv";
 end;
 
 define C-function glTexParameteri
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter param :: <GLint>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter param_ :: <GLint>;
   c-name: "glTexParameteri";
 end;
 
 define C-function glTexParameteriv
-  input parameter target :: <GLenum>;
-  input parameter pname :: <GLenum>;
-  input parameter params :: <GLint*>;
+  input parameter target_ :: <GLenum>;
+  input parameter pname_ :: <GLenum>;
+  input parameter params_ :: <GLint*>;
   c-name: "glTexParameteriv";
 end;
 
 define C-function glTexSubImage2D
-  input parameter target :: <GLenum>;
-  input parameter level :: <GLint>;
-  input parameter xoffset :: <GLint>;
-  input parameter yoffset :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
-  input parameter format :: <GLenum>;
-  input parameter type :: <GLenum>;
-  input parameter pixels :: <GLvoid*>;
+  input parameter target_ :: <GLenum>;
+  input parameter level_ :: <GLint>;
+  input parameter xoffset_ :: <GLint>;
+  input parameter yoffset_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
+  input parameter format_ :: <GLenum>;
+  input parameter type_ :: <GLenum>;
+  input parameter pixels_ :: <GLvoid*>;
   c-name: "glTexSubImage2D";
 end;
 
 define C-function glUniform1f
-  input parameter location :: <GLint>;
-  input parameter x :: <GLfloat>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLfloat>;
   c-name: "glUniform1f";
 end;
 
 define C-function glUniform1fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLfloat*>;
   c-name: "glUniform1fv";
 end;
 
 define C-function glUniform1i
-  input parameter location :: <GLint>;
-  input parameter x :: <GLint>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLint>;
   c-name: "glUniform1i";
 end;
 
 define C-function glUniform1iv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLint*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLint*>;
   c-name: "glUniform1iv";
 end;
 
 define C-function glUniform2f
-  input parameter location :: <GLint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
   c-name: "glUniform2f";
 end;
 
 define C-function glUniform2fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLfloat*>;
   c-name: "glUniform2fv";
 end;
 
 define C-function glUniform2i
-  input parameter location :: <GLint>;
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
   c-name: "glUniform2i";
 end;
 
 define C-function glUniform2iv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLint*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLint*>;
   c-name: "glUniform2iv";
 end;
 
 define C-function glUniform3f
-  input parameter location :: <GLint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
-  input parameter z :: <GLfloat>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
+  input parameter z_ :: <GLfloat>;
   c-name: "glUniform3f";
 end;
 
 define C-function glUniform3fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLfloat*>;
   c-name: "glUniform3fv";
 end;
 
 define C-function glUniform3i
-  input parameter location :: <GLint>;
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter z :: <GLint>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter z_ :: <GLint>;
   c-name: "glUniform3i";
 end;
 
 define C-function glUniform3iv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLint*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLint*>;
   c-name: "glUniform3iv";
 end;
 
 define C-function glUniform4f
-  input parameter location :: <GLint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
-  input parameter z :: <GLfloat>;
-  input parameter w :: <GLfloat>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
+  input parameter z_ :: <GLfloat>;
+  input parameter w_ :: <GLfloat>;
   c-name: "glUniform4f";
 end;
 
 define C-function glUniform4fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLfloat*>;
   c-name: "glUniform4fv";
 end;
 
 define C-function glUniform4i
-  input parameter location :: <GLint>;
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter z :: <GLint>;
-  input parameter w :: <GLint>;
+  input parameter location_ :: <GLint>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter z_ :: <GLint>;
+  input parameter w_ :: <GLint>;
   c-name: "glUniform4i";
 end;
 
 define C-function glUniform4iv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter v :: <GLint*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter v_ :: <GLint*>;
   c-name: "glUniform4iv";
 end;
 
 define C-function glUniformMatrix2fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter transpose :: <GLboolean>;
-  input parameter value :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter transpose_ :: <GLboolean>;
+  input parameter value_ :: <GLfloat*>;
   c-name: "glUniformMatrix2fv";
 end;
 
 define C-function glUniformMatrix3fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter transpose :: <GLboolean>;
-  input parameter value :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter transpose_ :: <GLboolean>;
+  input parameter value_ :: <GLfloat*>;
   c-name: "glUniformMatrix3fv";
 end;
 
 define C-function glUniformMatrix4fv
-  input parameter location :: <GLint>;
-  input parameter count :: <GLsizei>;
-  input parameter transpose :: <GLboolean>;
-  input parameter value :: <GLfloat*>;
+  input parameter location_ :: <GLint>;
+  input parameter count_ :: <GLsizei>;
+  input parameter transpose_ :: <GLboolean>;
+  input parameter value_ :: <GLfloat*>;
   c-name: "glUniformMatrix4fv";
 end;
 
 define C-function glUseProgram
-  input parameter program :: <GLuint>;
+  input parameter program_ :: <GLuint>;
   c-name: "glUseProgram";
 end;
 
 define C-function glValidateProgram
-  input parameter program :: <GLuint>;
+  input parameter program_ :: <GLuint>;
   c-name: "glValidateProgram";
 end;
 
 define C-function glVertexAttrib1f
-  input parameter indx :: <GLuint>;
-  input parameter x :: <GLfloat>;
+  input parameter indx_ :: <GLuint>;
+  input parameter x_ :: <GLfloat>;
   c-name: "glVertexAttrib1f";
 end;
 
 define C-function glVertexAttrib1fv
-  input parameter indx :: <GLuint>;
-  input parameter values :: <GLfloat*>;
+  input parameter indx_ :: <GLuint>;
+  input parameter values_ :: <GLfloat*>;
   c-name: "glVertexAttrib1fv";
 end;
 
 define C-function glVertexAttrib2f
-  input parameter indx :: <GLuint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
+  input parameter indx_ :: <GLuint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
   c-name: "glVertexAttrib2f";
 end;
 
 define C-function glVertexAttrib2fv
-  input parameter indx :: <GLuint>;
-  input parameter values :: <GLfloat*>;
+  input parameter indx_ :: <GLuint>;
+  input parameter values_ :: <GLfloat*>;
   c-name: "glVertexAttrib2fv";
 end;
 
 define C-function glVertexAttrib3f
-  input parameter indx :: <GLuint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
-  input parameter z :: <GLfloat>;
+  input parameter indx_ :: <GLuint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
+  input parameter z_ :: <GLfloat>;
   c-name: "glVertexAttrib3f";
 end;
 
 define C-function glVertexAttrib3fv
-  input parameter indx :: <GLuint>;
-  input parameter values :: <GLfloat*>;
+  input parameter indx_ :: <GLuint>;
+  input parameter values_ :: <GLfloat*>;
   c-name: "glVertexAttrib3fv";
 end;
 
 define C-function glVertexAttrib4f
-  input parameter indx :: <GLuint>;
-  input parameter x :: <GLfloat>;
-  input parameter y :: <GLfloat>;
-  input parameter z :: <GLfloat>;
-  input parameter w :: <GLfloat>;
+  input parameter indx_ :: <GLuint>;
+  input parameter x_ :: <GLfloat>;
+  input parameter y_ :: <GLfloat>;
+  input parameter z_ :: <GLfloat>;
+  input parameter w_ :: <GLfloat>;
   c-name: "glVertexAttrib4f";
 end;
 
 define C-function glVertexAttrib4fv
-  input parameter indx :: <GLuint>;
-  input parameter values :: <GLfloat*>;
+  input parameter indx_ :: <GLuint>;
+  input parameter values_ :: <GLfloat*>;
   c-name: "glVertexAttrib4fv";
 end;
 
 define C-function glVertexAttribPointer
-  input parameter indx :: <GLuint>;
-  input parameter size :: <GLint>;
-  input parameter type :: <GLenum>;
-  input parameter normalized :: <GLboolean>;
-  input parameter stride :: <GLsizei>;
-  input parameter ptr :: <GLvoid*>;
+  input parameter indx_ :: <GLuint>;
+  input parameter size_ :: <GLint>;
+  input parameter type_ :: <GLenum>;
+  input parameter normalized_ :: <GLboolean>;
+  input parameter stride_ :: <GLsizei>;
+  input parameter ptr_ :: <GLvoid*>;
   c-name: "glVertexAttribPointer";
 end;
 
 define C-function glViewport
-  input parameter x :: <GLint>;
-  input parameter y :: <GLint>;
-  input parameter width :: <GLsizei>;
-  input parameter height :: <GLsizei>;
+  input parameter x_ :: <GLint>;
+  input parameter y_ :: <GLint>;
+  input parameter width_ :: <GLsizei>;
+  input parameter height_ :: <GLsizei>;
   c-name: "glViewport";
 end;
 
