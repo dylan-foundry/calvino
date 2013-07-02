@@ -33,6 +33,10 @@ define interface
     output-argument: 2,
     output-argument: 3;
 
+  function "glfwGetFramebufferSize",
+    output-argument: 2,
+    output-argument: 3;
+
   function "glfwGetCursorPos",
     output-argument: 2,
     output-argument: 3;
