@@ -56,9 +56,9 @@ end;
 
 define C-pointer-type <int*> => <C-signed-int>;
 define C-function glfwGetVersion
-  input parameter major_ :: <int*>;
-  input parameter minor_ :: <int*>;
-  input parameter rev_ :: <int*>;
+  output parameter major_ :: <int*>;
+  output parameter minor_ :: <int*>;
+  output parameter rev_ :: <int*>;
   c-name: "glfwGetVersion";
 end;
 
@@ -87,15 +87,15 @@ end;
 
 define C-function glfwGetMonitorPos
   input parameter monitor_ :: <GLFWmonitor*>;
-  input parameter xpos_ :: <int*>;
-  input parameter ypos_ :: <int*>;
+  output parameter xpos_ :: <int*>;
+  output parameter ypos_ :: <int*>;
   c-name: "glfwGetMonitorPos";
 end;
 
 define C-function glfwGetMonitorPhysicalSize
   input parameter monitor_ :: <GLFWmonitor*>;
-  input parameter width_ :: <int*>;
-  input parameter height_ :: <int*>;
+  output parameter width_ :: <int*>;
+  output parameter height_ :: <int*>;
   c-name: "glfwGetMonitorPhysicalSize";
 end;
 
@@ -189,8 +189,8 @@ end;
 
 define C-function glfwGetWindowPos
   input parameter window_ :: <GLFWwindow*>;
-  input parameter xpos_ :: <int*>;
-  input parameter ypos_ :: <int*>;
+  output parameter xpos_ :: <int*>;
+  output parameter ypos_ :: <int*>;
   c-name: "glfwGetWindowPos";
 end;
 
@@ -203,8 +203,8 @@ end;
 
 define C-function glfwGetWindowSize
   input parameter window_ :: <GLFWwindow*>;
-  input parameter width_ :: <int*>;
-  input parameter height_ :: <int*>;
+  output parameter width_ :: <int*>;
+  output parameter height_ :: <int*>;
   c-name: "glfwGetWindowSize";
 end;
 
@@ -355,8 +355,8 @@ end;
 define C-pointer-type <double*> => <C-double>;
 define C-function glfwGetCursorPos
   input parameter window_ :: <GLFWwindow*>;
-  input parameter xpos_ :: <double*>;
-  input parameter ypos_ :: <double*>;
+  output parameter xpos_ :: <double*>;
+  output parameter ypos_ :: <double*>;
   c-name: "glfwGetCursorPos";
 end;
 

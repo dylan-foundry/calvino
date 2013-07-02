@@ -11,4 +11,29 @@ define interface
     import: all,
 
     equate: {"char *" => <c-string>};
+
+  function "glfwGetVersion",
+    output-argument: 1,
+    output-argument: 2,
+    output-argument: 3;
+
+  function "glfwGetMonitorPos",
+    output-argument: 2,
+    output-argument: 3;
+
+  function "glfwGetMonitorPhysicalSize",
+    output-argument: 2,
+    output-argument: 3;
+
+  function "glfwGetWindowPos",
+    output-argument: 2,
+    output-argument: 3;
+
+  function "glfwGetWindowSize",
+    output-argument: 2,
+    output-argument: 3;
+
+  function "glfwGetCursorPos",
+    output-argument: 2,
+    output-argument: 3;
 end interface;
