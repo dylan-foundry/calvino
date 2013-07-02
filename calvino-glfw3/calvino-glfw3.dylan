@@ -56,9 +56,9 @@ end;
 
 define C-pointer-type <int*> => <C-signed-int>;
 define C-function glfwGetVersion
-  input parameter major :: <int*>;
-  input parameter minor :: <int*>;
-  input parameter rev :: <int*>;
+  input parameter major_ :: <int*>;
+  input parameter minor_ :: <int*>;
+  input parameter rev_ :: <int*>;
   c-name: "glfwGetVersion";
 end;
 
@@ -68,14 +68,14 @@ define C-function glfwGetVersionString
 end;
 
 define C-function glfwSetErrorCallback
-  input parameter cbfun :: <GLFWerrorfun>;
+  input parameter cbfun_ :: <GLFWerrorfun>;
   result res :: <GLFWerrorfun>;
   c-name: "glfwSetErrorCallback";
 end;
 
 define C-pointer-type <GLFWmonitor**> => <GLFWmonitor*>;
 define C-function glfwGetMonitors
-  input parameter count :: <int*>;
+  input parameter count_ :: <int*>;
   result res :: <GLFWmonitor**>;
   c-name: "glfwGetMonitors";
 end;
@@ -86,61 +86,61 @@ define C-function glfwGetPrimaryMonitor
 end;
 
 define C-function glfwGetMonitorPos
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter xpos :: <int*>;
-  input parameter ypos :: <int*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter xpos_ :: <int*>;
+  input parameter ypos_ :: <int*>;
   c-name: "glfwGetMonitorPos";
 end;
 
 define C-function glfwGetMonitorPhysicalSize
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter width :: <int*>;
-  input parameter height :: <int*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter width_ :: <int*>;
+  input parameter height_ :: <int*>;
   c-name: "glfwGetMonitorPhysicalSize";
 end;
 
 define C-function glfwGetMonitorName
-  input parameter monitor :: <GLFWmonitor*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
   result res :: <c-string>;
   c-name: "glfwGetMonitorName";
 end;
 
 define C-function glfwSetMonitorCallback
-  input parameter cbfun :: <GLFWmonitorfun>;
+  input parameter cbfun_ :: <GLFWmonitorfun>;
   result res :: <GLFWmonitorfun>;
   c-name: "glfwSetMonitorCallback";
 end;
 
 define C-pointer-type <GLFWvidmode*> => <GLFWvidmode>;
 define C-function glfwGetVideoModes
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter count :: <int*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter count_ :: <int*>;
   result res :: <GLFWvidmode*>;
   c-name: "glfwGetVideoModes";
 end;
 
 define C-function glfwGetVideoMode
-  input parameter monitor :: <GLFWmonitor*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
   result res :: <GLFWvidmode*>;
   c-name: "glfwGetVideoMode";
 end;
 
 define C-function glfwSetGamma
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter gamma :: <C-float>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter gamma_ :: <C-float>;
   c-name: "glfwSetGamma";
 end;
 
 define C-pointer-type <GLFWgammaramp*> => <GLFWgammaramp>;
 define C-function glfwGetGammaRamp
-  input parameter monitor :: <GLFWmonitor*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
   result res :: <GLFWgammaramp*>;
   c-name: "glfwGetGammaRamp";
 end;
 
 define C-function glfwSetGammaRamp
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter ramp :: <GLFWgammaramp*>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter ramp_ :: <GLFWgammaramp*>;
   c-name: "glfwSetGammaRamp";
 end;
 
@@ -149,169 +149,169 @@ define C-function glfwDefaultWindowHints
 end;
 
 define C-function glfwWindowHint
-  input parameter target :: <C-signed-int>;
-  input parameter hint :: <C-signed-int>;
+  input parameter target_ :: <C-signed-int>;
+  input parameter hint_ :: <C-signed-int>;
   c-name: "glfwWindowHint";
 end;
 
 define C-function glfwCreateWindow
-  input parameter width :: <C-signed-int>;
-  input parameter height :: <C-signed-int>;
-  input parameter title :: <c-string>;
-  input parameter monitor :: <GLFWmonitor*>;
-  input parameter share :: <GLFWwindow*>;
+  input parameter width_ :: <C-signed-int>;
+  input parameter height_ :: <C-signed-int>;
+  input parameter title_ :: <c-string>;
+  input parameter monitor_ :: <GLFWmonitor*>;
+  input parameter share_ :: <GLFWwindow*>;
   result res :: <GLFWwindow*>;
   c-name: "glfwCreateWindow";
 end;
 
 define C-function glfwDestroyWindow
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwDestroyWindow";
 end;
 
 define C-function glfwWindowShouldClose
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   result res :: <C-signed-int>;
   c-name: "glfwWindowShouldClose";
 end;
 
 define C-function glfwSetWindowShouldClose
-  input parameter window :: <GLFWwindow*>;
-  input parameter value :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter value_ :: <C-signed-int>;
   c-name: "glfwSetWindowShouldClose";
 end;
 
 define C-function glfwSetWindowTitle
-  input parameter window :: <GLFWwindow*>;
-  input parameter title :: <c-string>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter title_ :: <c-string>;
   c-name: "glfwSetWindowTitle";
 end;
 
 define C-function glfwGetWindowPos
-  input parameter window :: <GLFWwindow*>;
-  input parameter xpos :: <int*>;
-  input parameter ypos :: <int*>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter xpos_ :: <int*>;
+  input parameter ypos_ :: <int*>;
   c-name: "glfwGetWindowPos";
 end;
 
 define C-function glfwSetWindowPos
-  input parameter window :: <GLFWwindow*>;
-  input parameter xpos :: <C-signed-int>;
-  input parameter ypos :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter xpos_ :: <C-signed-int>;
+  input parameter ypos_ :: <C-signed-int>;
   c-name: "glfwSetWindowPos";
 end;
 
 define C-function glfwGetWindowSize
-  input parameter window :: <GLFWwindow*>;
-  input parameter width :: <int*>;
-  input parameter height :: <int*>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter width_ :: <int*>;
+  input parameter height_ :: <int*>;
   c-name: "glfwGetWindowSize";
 end;
 
 define C-function glfwSetWindowSize
-  input parameter window :: <GLFWwindow*>;
-  input parameter width :: <C-signed-int>;
-  input parameter height :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter width_ :: <C-signed-int>;
+  input parameter height_ :: <C-signed-int>;
   c-name: "glfwSetWindowSize";
 end;
 
 define C-function glfwGetFramebufferSize
-  input parameter window :: <GLFWwindow*>;
-  input parameter width :: <int*>;
-  input parameter height :: <int*>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter width_ :: <int*>;
+  input parameter height_ :: <int*>;
   c-name: "glfwGetFramebufferSize";
 end;
 
 define C-function glfwIconifyWindow
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwIconifyWindow";
 end;
 
 define C-function glfwRestoreWindow
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwRestoreWindow";
 end;
 
 define C-function glfwShowWindow
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwShowWindow";
 end;
 
 define C-function glfwHideWindow
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwHideWindow";
 end;
 
 define C-function glfwGetWindowMonitor
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   result res :: <GLFWmonitor*>;
   c-name: "glfwGetWindowMonitor";
 end;
 
 define C-function glfwGetWindowAttrib
-  input parameter window :: <GLFWwindow*>;
-  input parameter attrib :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter attrib_ :: <C-signed-int>;
   result res :: <C-signed-int>;
   c-name: "glfwGetWindowAttrib";
 end;
 
 define C-function glfwSetWindowUserPointer
-  input parameter window :: <GLFWwindow*>;
-  input parameter pointer :: <C-void*>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter pointer_ :: <C-void*>;
   c-name: "glfwSetWindowUserPointer";
 end;
 
 define C-function glfwGetWindowUserPointer
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   result res :: <C-void*>;
   c-name: "glfwGetWindowUserPointer";
 end;
 
 define C-function glfwSetWindowPosCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowposfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowposfun>;
   result res :: <GLFWwindowposfun>;
   c-name: "glfwSetWindowPosCallback";
 end;
 
 define C-function glfwSetWindowSizeCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowsizefun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowsizefun>;
   result res :: <GLFWwindowsizefun>;
   c-name: "glfwSetWindowSizeCallback";
 end;
 
 define C-function glfwSetWindowCloseCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowclosefun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowclosefun>;
   result res :: <GLFWwindowclosefun>;
   c-name: "glfwSetWindowCloseCallback";
 end;
 
 define C-function glfwSetWindowRefreshCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowrefreshfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowrefreshfun>;
   result res :: <GLFWwindowrefreshfun>;
   c-name: "glfwSetWindowRefreshCallback";
 end;
 
 define C-function glfwSetWindowFocusCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowfocusfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowfocusfun>;
   result res :: <GLFWwindowfocusfun>;
   c-name: "glfwSetWindowFocusCallback";
 end;
 
 define C-function glfwSetWindowIconifyCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWwindowiconifyfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWwindowiconifyfun>;
   result res :: <GLFWwindowiconifyfun>;
   c-name: "glfwSetWindowIconifyCallback";
 end;
 
 define C-function glfwSetFramebufferSizeCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWframebuffersizefun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWframebuffersizefun>;
   result res :: <GLFWframebuffersizefun>;
   c-name: "glfwSetFramebufferSizeCallback";
 end;
@@ -325,126 +325,126 @@ define C-function glfwWaitEvents
 end;
 
 define C-function glfwGetInputMode
-  input parameter window :: <GLFWwindow*>;
-  input parameter mode :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter mode_ :: <C-signed-int>;
   result res :: <C-signed-int>;
   c-name: "glfwGetInputMode";
 end;
 
 define C-function glfwSetInputMode
-  input parameter window :: <GLFWwindow*>;
-  input parameter mode :: <C-signed-int>;
-  input parameter value :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter mode_ :: <C-signed-int>;
+  input parameter value_ :: <C-signed-int>;
   c-name: "glfwSetInputMode";
 end;
 
 define C-function glfwGetKey
-  input parameter window :: <GLFWwindow*>;
-  input parameter key :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter key_ :: <C-signed-int>;
   result res :: <C-signed-int>;
   c-name: "glfwGetKey";
 end;
 
 define C-function glfwGetMouseButton
-  input parameter window :: <GLFWwindow*>;
-  input parameter button :: <C-signed-int>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter button_ :: <C-signed-int>;
   result res :: <C-signed-int>;
   c-name: "glfwGetMouseButton";
 end;
 
 define C-pointer-type <double*> => <C-double>;
 define C-function glfwGetCursorPos
-  input parameter window :: <GLFWwindow*>;
-  input parameter xpos :: <double*>;
-  input parameter ypos :: <double*>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter xpos_ :: <double*>;
+  input parameter ypos_ :: <double*>;
   c-name: "glfwGetCursorPos";
 end;
 
 define C-function glfwSetCursorPos
-  input parameter window :: <GLFWwindow*>;
-  input parameter xpos :: <C-double>;
-  input parameter ypos :: <C-double>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter xpos_ :: <C-double>;
+  input parameter ypos_ :: <C-double>;
   c-name: "glfwSetCursorPos";
 end;
 
 define C-function glfwSetKeyCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWkeyfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWkeyfun>;
   result res :: <GLFWkeyfun>;
   c-name: "glfwSetKeyCallback";
 end;
 
 define C-function glfwSetCharCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWcharfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWcharfun>;
   result res :: <GLFWcharfun>;
   c-name: "glfwSetCharCallback";
 end;
 
 define C-function glfwSetMouseButtonCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWmousebuttonfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWmousebuttonfun>;
   result res :: <GLFWmousebuttonfun>;
   c-name: "glfwSetMouseButtonCallback";
 end;
 
 define C-function glfwSetCursorPosCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWcursorposfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWcursorposfun>;
   result res :: <GLFWcursorposfun>;
   c-name: "glfwSetCursorPosCallback";
 end;
 
 define C-function glfwSetCursorEnterCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWcursorenterfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWcursorenterfun>;
   result res :: <GLFWcursorenterfun>;
   c-name: "glfwSetCursorEnterCallback";
 end;
 
 define C-function glfwSetScrollCallback
-  input parameter window :: <GLFWwindow*>;
-  input parameter cbfun :: <GLFWscrollfun>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWscrollfun>;
   result res :: <GLFWscrollfun>;
   c-name: "glfwSetScrollCallback";
 end;
 
 define C-function glfwJoystickPresent
-  input parameter joy :: <C-signed-int>;
+  input parameter joy_ :: <C-signed-int>;
   result res :: <C-signed-int>;
   c-name: "glfwJoystickPresent";
 end;
 
 define C-pointer-type <float*> => <C-float>;
 define C-function glfwGetJoystickAxes
-  input parameter joy :: <C-signed-int>;
-  input parameter count :: <int*>;
+  input parameter joy_ :: <C-signed-int>;
+  input parameter count_ :: <int*>;
   result res :: <float*>;
   c-name: "glfwGetJoystickAxes";
 end;
 
 define C-pointer-type <unsigned-char*> => <C-unsigned-char>;
 define C-function glfwGetJoystickButtons
-  input parameter joy :: <C-signed-int>;
-  input parameter count :: <int*>;
+  input parameter joy_ :: <C-signed-int>;
+  input parameter count_ :: <int*>;
   result res :: <unsigned-char*>;
   c-name: "glfwGetJoystickButtons";
 end;
 
 define C-function glfwGetJoystickName
-  input parameter joy :: <C-signed-int>;
+  input parameter joy_ :: <C-signed-int>;
   result res :: <c-string>;
   c-name: "glfwGetJoystickName";
 end;
 
 define C-function glfwSetClipboardString
-  input parameter window :: <GLFWwindow*>;
-  input parameter string :: <c-string>;
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter string_ :: <c-string>;
   c-name: "glfwSetClipboardString";
 end;
 
 define C-function glfwGetClipboardString
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   result res :: <c-string>;
   c-name: "glfwGetClipboardString";
 end;
@@ -455,12 +455,12 @@ define C-function glfwGetTime
 end;
 
 define C-function glfwSetTime
-  input parameter time :: <C-double>;
+  input parameter time_ :: <C-double>;
   c-name: "glfwSetTime";
 end;
 
 define C-function glfwMakeContextCurrent
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwMakeContextCurrent";
 end;
 
@@ -470,23 +470,23 @@ define C-function glfwGetCurrentContext
 end;
 
 define C-function glfwSwapBuffers
-  input parameter window :: <GLFWwindow*>;
+  input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwSwapBuffers";
 end;
 
 define C-function glfwSwapInterval
-  input parameter interval :: <C-signed-int>;
+  input parameter interval_ :: <C-signed-int>;
   c-name: "glfwSwapInterval";
 end;
 
 define C-function glfwExtensionSupported
-  input parameter extension :: <c-string>;
+  input parameter extension_ :: <c-string>;
   result res :: <C-signed-int>;
   c-name: "glfwExtensionSupported";
 end;
 
 define C-function glfwGetProcAddress
-  input parameter procname :: <c-string>;
+  input parameter procname_ :: <c-string>;
   result res :: <GLFWglproc>;
   c-name: "glfwGetProcAddress";
 end;
