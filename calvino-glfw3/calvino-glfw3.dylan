@@ -171,7 +171,7 @@ end;
 
 define C-function glfwWindowShouldClose
   input parameter window_ :: <GLFWwindow*>;
-  result res :: <C-signed-int>;
+  result res :: <C-boolean>;
   c-name: "glfwWindowShouldClose";
 end;
 

@@ -40,4 +40,7 @@ define interface
   function "glfwGetCursorPos",
     output-argument: 2,
     output-argument: 3;
+
+  function "glfwWindowShouldClose",
+    map-result: <C-boolean>;
 end interface;
