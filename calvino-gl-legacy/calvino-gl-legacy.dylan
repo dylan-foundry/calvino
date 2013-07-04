@@ -1051,7 +1051,7 @@ end;
 
 define C-function glGetString
   input parameter name_ :: <GLenum>;
-  result res :: <GLubyte*>;
+  result res :: <c-string>;
   c-name: "glGetString";
 end;
 

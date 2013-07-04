@@ -11,4 +11,7 @@ define interface
     import: all,
 
     equate: {"char *" => <c-string>};
+
+  function "glGetString",
+    map-result: <c-string>;
 end interface;
