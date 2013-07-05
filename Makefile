@@ -17,6 +17,10 @@ glfw-gears:
 	dylan-compiler -build examples-glfw-gears
 	_build/bin/glfw-gears
 
+glfw-splitview:
+	dylan-compiler -build examples-glfw-splitview
+	_build/bin/glfw-splitview
+
 clean:
 	rm -rf _build/bin/calvino*
 	rm -rf _build/lib/*calvino*
