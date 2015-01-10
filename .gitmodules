@@ -1,0 +1,3 @@
+[submodule "calvino-nanovg/ext/nanovg"]
+	path = calvino-nanovg/ext/nanovg
+	url = https://github.com/memononen/nanovg.git
