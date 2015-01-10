@@ -82,8 +82,8 @@ define function main (name :: <string>, arguments :: <vector>)
     nvgBeginFrame(vg, winWidth, winHeight, pxRatio);
 
     let data = #f;
-    let f = curry(as, <float>);
-    render-demo(vg, f(mx), f(my), f(winWidth), f(winHeight), t, data);
+    let f = curry(as, <single-float>);
+    render-demo(vg, f(mx), f(my), f(winWidth), f(winHeight), f(t), data);
 
     nvgEndFrame(vg);
 
