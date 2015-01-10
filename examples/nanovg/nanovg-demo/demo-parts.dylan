@@ -221,6 +221,113 @@ define function draw-lines
   nvgRestore(vg);
 end function;
 
+define function draw-widths
+    (vg :: <NVGcontext*>, x :: <single-float>, y :: <single-float>,
+     width :: <single-float>)
+ => ()
+  nvgSave(vg);
+
+  nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 255));
+
+  for (i from 0 below 20)
+    let w = (i + 0.5s0) * 0.1s0;
+    nvgStrokeWidth(vg, w);
+    nvgBeginPath(vg);
+    nvgMoveTo(vg, x, y);
+    nvgLineTo(vg, x + width, y + width * 0.3s0);
+    nvgStroke(vg);
+    y := y + 10;
+  end;
+
+  nvgRestore(vg);
+end;
+
+define function draw-caps
+    (vg :: <NVGcontext*>, x :: <single-float>, y :: <single-float>,
+     width :: <single-float>)
+ => ()
+  let caps = vector($NVG-BUTT, $NVG-ROUND, $NVG-SQUARE);
+  let lineWidth = 8.0s0;
+
+  nvgSave(vg);
+
+  nvgBeginPath(vg);
+  nvgRect(vg, x - lineWidth / 2, y, width + lineWidth, 40.0s0);
+  nvgFillColor(vg, nvgRGBA(255, 255, 255, 32));
+  nvgFill(vg);
+
+  nvgBeginPath(vg);
+  nvgRect(vg, x, y, width, 40.0s0);
+  nvgFillColor(vg, nvgRGBA(255, 255, 255, 32));
+  nvgFill(vg);
+
+  nvgStrokeWidth(vg, lineWidth);
+  for (i from 0 below 3)
+    nvgLineCap(vg, caps[i]);
+    nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 255));
+    nvgBeginPath(vg);
+    nvgMoveTo(vg, x, y + i * 10 + 5);
+    nvgLineTo(vg, x + width, y + i * 10 + 5);
+    nvgStroke(vg);
+  end;
+
+  nvgRestore(vg);
+end;
+
+define function draw-window
+    (vg :: <NVGcontext*>, title :: <string>,
+     x :: <single-float>, y :: <single-float>,
+     w :: <single-float>, h :: <single-float>)
+ => ()
+  let cornerRadius = 3.0s0;
+
+  nvgSave(vg);
+
+  // Window
+  nvgBeginPath(vg);
+  nvgRoundedRect(vg, x, y, w, h, cornerRadius);
+  nvgFillColor(vg, nvgRGBA(28, 30, 34, 192));
+  nvgFill(vg);
+
+  // Drop shadow
+  let shadowPaint = nvgBoxGradient(vg, x,y + 2, w, h, cornerRadius * 2, 10.0,
+                                   nvgRGBA(0, 0, 0, 128), nvgRGBA(0, 0, 0, 0));
+  nvgBeginPath(vg);
+  nvgRect(vg, x - 10, y - 10, w + 20, h + 30);
+  nvgRoundedRect(vg, x, y, w, h, cornerRadius);
+  nvgPathWinding(vg, $NVG-HOLE);
+  nvgFillPaint(vg, shadowPaint);
+  nvgFill(vg);
+
+  // Header
+  let headerPaint = nvgLinearGradient(vg, x, y, x, y + 15,
+                                      nvgRGBA(255, 255, 255, 8),
+                                      nvgRGBA(0, 0, 0, 16));
+  nvgBeginPath(vg);
+  nvgRoundedRect(vg, x + 1, y + 1, w - 2, 30.0, cornerRadius - 1);
+  nvgFillPaint(vg, headerPaint);
+  nvgFill(vg);
+  nvgBeginPath(vg);
+  nvgMoveTo(vg, x + 0.5s0, y + 0.5s0 + 30);
+  nvgLineTo(vg, x + 0.5s0 + w - 1, y + 0.5s0 + 30);
+  nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 32));
+  nvgStroke(vg);
+
+  nvgFontSize(vg, 18.0s0);
+  nvgFontFace(vg, "sans-bold");
+  nvgTextAlign(vg, logior($NVG-ALIGN-CENTER, $NVG-ALIGN-MIDDLE));
+
+  nvgFontBlur(vg, 2.0);
+  nvgFillColor(vg, nvgRGBA(0, 0, 0, 128));
+  nvgText(vg, x + w / 2, y + 16 + 1, title, null-pointer(<c-string>));
+
+  nvgFontBlur(vg, 0.0);
+  nvgFillColor(vg, nvgRGBA(220, 220, 220, 160));
+  nvgText(vg, x + w / 2, y + 16, title, null-pointer(<c-string>));
+
+  nvgRestore(vg);
+end;
+
 define function render-demo
     (vg :: <NVGcontext*>, mx :: <single-float>, my :: <single-float>,
      width :: <single-float>, height :: <single-float>,
@@ -228,5 +335,16 @@ define function render-demo
  => ()
   draw-eyes(vg, width - 250, 50.0, 150.0, 100.0, mx, my, t);
   draw-graph(vg, 0.0, height / 2, width, height / 2, t);
+
+  // Line joints
   draw-lines(vg, 120.0, height - 50, 600.0, 50.0, t);
+
+  // Line caps
+  draw-widths(vg, 10.0, 50.0, 30.0);
+
+  // Line caps
+  draw-caps(vg, 10.0, 300.0, 30.0);
+
+  // Widgets
+  draw-window(vg, "Widgets `n Stuff", 50.0, 50.0, 300.0, 400.0);
 end;

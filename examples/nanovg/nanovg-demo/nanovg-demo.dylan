@@ -62,6 +62,15 @@ define function main (name :: <string>, arguments :: <vector>)
     exit-application(2);
   end if;
 
+  let font-normal = nvgCreateFont(vg, "sans", "Roboto-Regular.ttf");
+  if (font-normal == -1)
+    exit-application(3);
+  end;
+  let font-bold = nvgCreateFont(vg, "sans-bold", "Roboto-Bold.ttf");
+  if (font-bold == -1)
+    exit-application(4);
+  end;
+
   glfwSwapInterval(0);
   glfwSetTime(0.0d0);
 
