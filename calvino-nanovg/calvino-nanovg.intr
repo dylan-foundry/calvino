@@ -8,6 +8,7 @@ define interface
       "nanovg.h"
     },
     import: all,
+    inline-functions: inline,
     equate: {"char *" => <c-string>},
     exclude: {
       "nvgRGB",
@@ -28,7 +29,7 @@ end interface;
 
 define C-pointer-type <NVGcolor*> => <NVGcolor>;
 
-define inline-only C-function %nvgRGBA
+define inline C-function %nvgRGBA
   parameter color :: <NVGcolor*>;
   parameter r :: <C-unsigned-char>;
   parameter g :: <C-unsigned-char>;
@@ -37,13 +38,13 @@ define inline-only C-function %nvgRGBA
   c-name: "dylan_nvgRGBA";
 end;
 
-define inline-only function nvgRGBA (r, g, b, a) => (color)
+define inline function nvgRGBA (r, g, b, a) => (color)
   let c = make(<NVGcolor*>);
   %nvgRGBA(c, r, g, b, a);
   c
 end;
 
-define inline-only C-function %nvgRGB
+define inline C-function %nvgRGB
   parameter color :: <NVGcolor*>;
   parameter r :: <C-unsigned-char>;
   parameter g :: <C-unsigned-char>;
@@ -51,13 +52,13 @@ define inline-only C-function %nvgRGB
   c-name: "dylan_nvgRGB";
 end;
 
-define inline-only function nvgRGB (r, g, b) => (color)
+define inline function nvgRGB (r, g, b) => (color)
   let c = make(<NVGcolor*>);
   %nvgRGB(c, r, g, b);
   c
 end;
 
-define inline-only C-function %nvgRGBAf
+define inline C-function %nvgRGBAf
   parameter color :: <NVGcolor*>;
   parameter r :: <C-float>;
   parameter g :: <C-float>;
@@ -66,13 +67,13 @@ define inline-only C-function %nvgRGBAf
   c-name: "dylan_nvgRGBAf";
 end;
 
-define inline-only function nvgRGBAf (r, g, b, a) => (color)
+define inline function nvgRGBAf (r, g, b, a) => (color)
   let c = make(<NVGcolor*>);
   %nvgRGBAf(c, r, g, b, a);
   c
 end;
 
-define inline-only C-function %nvgRGBf
+define inline C-function %nvgRGBf
   parameter color :: <NVGcolor*>;
   parameter r :: <C-float>;
   parameter g :: <C-float>;
@@ -80,13 +81,13 @@ define inline-only C-function %nvgRGBf
   c-name: "dylan_nvgRGBf";
 end;
 
-define inline-only function nvgRGBf (r, g, b) => (color)
+define inline function nvgRGBf (r, g, b) => (color)
   let c = make(<NVGcolor*>);
   %nvgRGBf(c, r, g, b);
   c
 end;
 
-define inline-only C-function %nvgLerpRGBA
+define inline C-function %nvgLerpRGBA
   parameter res :: <NVGcolor*>;
   parameter c0 :: <NVGcolor*>;
   parameter c1 :: <NVGcolor*>;
@@ -94,39 +95,39 @@ define inline-only C-function %nvgLerpRGBA
   c-name: "dylan_nvgLerpRGBA";
 end;
 
-define inline-only function nvgLerpRGBA (c0, c1, u) => (color)
+define inline function nvgLerpRGBA (c0, c1, u) => (color)
   let c = make(<NVGcolor*>);
   %nvgLerpRGBA(c, c0, c1, u);
   c
 end;
 
-define inline-only C-function %nvgTransRGBA
+define inline C-function %nvgTransRGBA
   parameter res :: <NVGcolor*>;
   parameter c0 :: <NVGcolor*>;
   parameter a :: <C-unsigned-char>;
   c-name: "dylan_nvgTransRGBA";
 end;
 
-define inline-only function nvgTransRGBA (c0, a) => (color)
+define inline function nvgTransRGBA (c0, a) => (color)
   let c = make(<NVGcolor*>);
   %nvgTransRGBA(c, c0, a);
   c
 end;
 
-define inline-only C-function %nvgTransRGBAf
+define inline C-function %nvgTransRGBAf
   parameter res :: <NVGcolor*>;
   parameter c0 :: <NVGcolor*>;
   parameter a :: <C-float>;
   c-name: "dylan_nvgTransRGBAf";
 end;
 
-define inline-only function nvgTransRGBAf (c0, a) => (color)
+define inline function nvgTransRGBAf (c0, a) => (color)
   let c = make(<NVGcolor*>);
   %nvgTransRGBAf(c, c0, a);
   c
 end;
 
-define inline-only C-function %nvgHSL
+define inline C-function %nvgHSL
   parameter res :: <NVGcolor*>;
   parameter h :: <C-float>;
   parameter s :: <C-float>;
@@ -134,13 +135,13 @@ define inline-only C-function %nvgHSL
   c-name: "dylan_nvgHSL";
 end;
 
-define inline-only function nvgHSL (h, s, l) => (color)
+define inline function nvgHSL (h, s, l) => (color)
   let c = make(<NVGcolor*>);
   %nvgHSL(c, h, s, l);
   c
 end;
 
-define inline-only C-function %nvgHSLA
+define inline C-function %nvgHSLA
   parameter res :: <NVGcolor*>;
   parameter h :: <C-float>;
   parameter s :: <C-float>;
@@ -149,13 +150,13 @@ define inline-only C-function %nvgHSLA
   c-name: "dylan_nvgHSLA";
 end;
 
-define inline-only function nvgHSLA (h, s, l, a) => (color)
+define inline function nvgHSLA (h, s, l, a) => (color)
   let c = make(<NVGcolor*>);
   %nvgHSLA(c, h, s, l, a);
   c
 end;
 
-define inline-only C-function %nvgLinearGradient
+define inline C-function %nvgLinearGradient
   parameter res :: <NVGpaint*>;
   parameter ctx :: <NVGcontext*>;
   parameter sx :: <C-float>;
@@ -167,7 +168,7 @@ define inline-only C-function %nvgLinearGradient
   c-name: "dylan_nvgLinearGradient";
 end;
 
-define inline-only function nvgLinearGradient
+define inline function nvgLinearGradient
     (ctx, sx, sy, ex, ey, icol, ocol)
  => (paint)
   let p = make(<NVGpaint*>);
@@ -175,7 +176,7 @@ define inline-only function nvgLinearGradient
   p
 end;
 
-define inline-only C-function %nvgBoxGradient
+define inline C-function %nvgBoxGradient
   parameter res :: <NVGpaint*>;
   parameter ctx :: <NVGcontext*>;
   parameter x :: <C-float>;
@@ -189,7 +190,7 @@ define inline-only C-function %nvgBoxGradient
   c-name: "dylan_nvgBoxGradient";
 end;
 
-define inline-only function nvgBoxGradient
+define inline function nvgBoxGradient
     (ctx, x, y, w, h, r, f, icol, ocol)
  => (paint)
   let p = make(<NVGpaint*>);
@@ -197,7 +198,7 @@ define inline-only function nvgBoxGradient
   p
 end;
 
-define inline-only C-function %nvgRadialGradient
+define inline C-function %nvgRadialGradient
   parameter res :: <NVGpaint*>;
   parameter ctx :: <NVGcontext*>;
   parameter cx :: <C-float>;
@@ -209,7 +210,7 @@ define inline-only C-function %nvgRadialGradient
   c-name: "dylan_nvgRadialGradient";
 end;
 
-define inline-only function nvgRadialGradient
+define inline function nvgRadialGradient
     (ctx, cx, cy, inr, outr, icol, ocol)
  => (paint)
   let p = make(<NVGpaint*>);
@@ -217,7 +218,7 @@ define inline-only function nvgRadialGradient
   p
 end;
 
-define inline-only C-function %nvgImagePattern
+define inline C-function %nvgImagePattern
   parameter res :: <NVGpaint*>;
   parameter ctx :: <NVGcontext*>;
   parameter ox :: <C-float>;
@@ -230,7 +231,7 @@ define inline-only C-function %nvgImagePattern
   c-name: "dylan_nvgImagePattern";
 end;
 
-define inline-only function nvgImagePattern
+define inline function nvgImagePattern
     (ctx, ox, oy, ex, ey, angle, image, alpha)
  => (paint)
   let p = make(<NVGpaint*>);

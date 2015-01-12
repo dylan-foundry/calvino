@@ -14,6 +14,7 @@ define interface
     },
     import: "nanovg.h" => none,
     import: "nanovg_gl.h" => all,
+    inline-functions: inline,
     exclude: {
       "NVGcontext*",
       "NANOVG_GL_USE_STATE_FILTER"

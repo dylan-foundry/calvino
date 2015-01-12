@@ -8,13 +8,13 @@ define constant $NVG-ANTIALIAS = 1;
 define constant $NVG-STENCIL-STROKES = 2;
 define constant $NVG-DEBUG = 4;
 
-define C-function nvgCreateGL3
+define inline C-function nvgCreateGL3
   input parameter flags_ :: <C-signed-int>;
   result res :: <NVGcontext*>;
   c-name: "nvgCreateGL3";
 end;
 
-define C-function nvgDeleteGL3
+define inline C-function nvgDeleteGL3
   input parameter ctx_ :: <NVGcontext*>;
   c-name: "nvgDeleteGL3";
 end;
@@ -22,7 +22,7 @@ end;
 define constant <NVGimageFlagsGL> = <C-int>;
 define constant $NVG-IMAGE-NODELETE = 65536;
 
-define C-function nvglCreateImageFromHandle
+define inline C-function nvglCreateImageFromHandle
   input parameter ctx_ :: <NVGcontext*>;
   input parameter textureId_ :: <C-unsigned-int>;
   input parameter w_ :: <C-signed-int>;
@@ -32,7 +32,7 @@ define C-function nvglCreateImageFromHandle
   c-name: "nvglCreateImageFromHandle";
 end;
 
-define C-function nvglImageHandle
+define inline C-function nvglImageHandle
   input parameter ctx_ :: <NVGcontext*>;
   input parameter image_ :: <C-signed-int>;
   result res :: <C-unsigned-int>;
