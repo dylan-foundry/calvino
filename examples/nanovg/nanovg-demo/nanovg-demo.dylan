@@ -71,7 +71,7 @@ define function main (name :: <string>, arguments :: <vector>)
     exit-application(4);
   end;
 
-  glfwSwapInterval(0);
+  glfwSwapInterval(1);
   glfwSetTime(0.0d0);
 
   /* Loop until the user closes the window */
