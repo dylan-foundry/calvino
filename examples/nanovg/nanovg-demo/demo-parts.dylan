@@ -4,18 +4,18 @@ Author: Bruce Mitchener, Jr.
 Copyright: See LICENSE file in this distribution.
 
 define function draw-eyes
-    (vg :: <NVGcontext*>, x :: <float>, y :: <float>,
-     w :: <float>, h :: <float>, mx :: <float>, my :: <float>,
-     t :: <float>)
+    (vg :: <NVGcontext*>, x :: <single-float>, y :: <single-float>,
+     w :: <single-float>, h :: <single-float>, mx :: <single-float>,
+     my :: <single-float>, t :: <single-float>)
  => ()
-  let ex :: <single-float> = w * 0.23;
+  let ex = w * 0.23;
   let ey :: <single-float> = h * 0.5;
   let lx :: <single-float> = x + ex;
   let ly :: <single-float> = y + ey;
   let rx :: <single-float> = x + w - ex;
   let ry :: <single-float> = y + ey;
-  let br = as(<single-float>, if (ex < ey) ex else ey end * 0.5);
-  let blink = as(<single-float>, 1 - (sin(t * 0.5) ^ 200) * 0.8);
+  let br = if (ex < ey) ex else ey end * 0.5;
+  let blink = 1 - (sin(t * 0.5) ^ 200) * 0.8;
 
   let bg = nvgLinearGradient(vg, x, y + h * 0.5, x + w * 0.1, y + h,
                              nvgRGBA(0, 0, 0, 32), nvgRGBA(0, 0, 0, 16));
@@ -96,10 +96,10 @@ define function draw-graph
     (1 + sin(t * 0.345s0 + cos(t * 0.03s0) * 0.6s0)) * 0.5s0
   );
 
-  let sx = make(<vector>, size: 8);
-  let sy = make(<vector>, size: 8);
+  let sx = make(limited(<vector>, of: <single-float>, size: 8));
+  let sy = make(limited(<vector>, of: <single-float>, size: 8));
   for (i from 0 below 6)
-    sx[i] := x + i * dx;
+    sx[i] := x + as(<single-float>, i) * dx;
     sy[i] := y + h * samples[i] * 0.8s0;
   end;
 
@@ -167,35 +167,37 @@ end;
 
 define function draw-lines
     (vg :: <NVGcontext*>,
-     x :: <float>, y :: <float>,
-     w :: <float>, h :: <float>,
-     t :: <float>)
+     x :: <single-float>, y :: <single-float>,
+     w :: <single-float>, h :: <single-float>,
+     t :: <single-float>)
  => ()
   let pad = 5.0;
   let s = w / 9.0 - pad * 2;
-  let joins = vector($NVG-MITER, $NVG-ROUND, $NVG-BEVEL);
-  let caps = vector($NVG-BUTT, $NVG-ROUND, $NVG-SQUARE);
+  let joins = as(limited(<vector>, of: <integer>),
+                 vector($NVG-MITER, $NVG-ROUND, $NVG-BEVEL));
+  let caps = as(limited(<vector>, of: <integer>),
+                vector($NVG-BUTT, $NVG-ROUND, $NVG-SQUARE));
 
   nvgSave(vg);
-  let pts
-   = vector(as(<single-float>, -s * 0.25 + cos(t * 0.3) * s * 0.5),
-            as(<single-float>, sin(t * 0.3) * s * 0.5),
-            as(<single-float>, -s * 0.25),
-            as(<single-float>, 0.0),
-            as(<single-float>, s * 0.25),
-            as(<single-float>, 0.0),
-            as(<single-float>, s * 0.25 + cos(-t * 0.3) * s * 0.5),
-            as(<single-float>, sin(-t * 0.3) * s * 0.5));
+  let pts = as(limited(<vector>, of: <single-float>, size: 8),
+               vector(-s * 0.25 + cos(t * 0.3) * s * 0.5,
+                      sin(t * 0.3) * s * 0.5,
+                      -s * 0.25,
+                      0.0,
+                      s * 0.25,
+                      0.0,
+                      s * 0.25 + cos(-t * 0.3) * s * 0.5,
+                      sin(-t * 0.3) * s * 0.5));
 
   for (i from 0 below 3)
     for (j from 0 below 3)
-      let fx = x + s * 0.5 + (i * 3 + j) / 9.0 * w + pad;
-      let fy = y - s * 0.5 + pad;
+      let fx = x + s * 0.5s0 + as(<single-float>, i * 3 + j) / 9.0s0 * w + pad;
+      let fy = y - s * 0.5s0 + pad;
 
       nvgLineCap(vg, caps[i]);
       nvgLineJoin(vg, joins[j]);
 
-      nvgStrokeWidth(vg, s * 0.3);
+      nvgStrokeWidth(vg, s * 0.3s0);
       nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 160));
       nvgBeginPath(vg);
       nvgMoveTo(vg, fx + pts[0], fy + pts[1]);
