@@ -7,10 +7,10 @@ define C-struct <NVGcontext>
 end;
 
 define C-struct <anonymous-0>
-  slot anonymous-0$r :: <C-float>;
-  slot anonymous-0$g :: <C-float>;
-  slot anonymous-0$b :: <C-float>;
-  slot anonymous-0$a :: <C-float>;
+  sealed slot anonymous-0$r :: <C-float>;
+  sealed slot anonymous-0$g :: <C-float>;
+  sealed slot anonymous-0$b :: <C-float>;
+  sealed slot anonymous-0$a :: <C-float>;
 end;
 
 define C-pointer-type <float*> => <C-float>;
@@ -21,19 +21,19 @@ define C-union <anonymous-1>
 end;
 
 define C-struct <NVGcolor>
-  slot NVGcolor$_anon-field :: <anonymous-1>;
+  sealed slot NVGcolor$_anon-field :: <anonymous-1>;
 end;
 
 define constant <float<@6>> = <float*>;
 define constant <float<@2>> = <float*>;
 define C-struct <NVGpaint>
-  array slot NVGpaint$xform :: <C-float>, length: 6;
-  array slot NVGpaint$extent :: <C-float>, length: 2;
-  slot NVGpaint$radius :: <C-float>;
-  slot NVGpaint$feather :: <C-float>;
-  slot NVGpaint$innerColor :: <NVGcolor>;
-  slot NVGpaint$outerColor :: <NVGcolor>;
-  slot NVGpaint$image :: <C-signed-int>;
+  sealed array slot NVGpaint$xform :: <C-float>, length: 6;
+  sealed array slot NVGpaint$extent :: <C-float>, length: 2;
+  sealed slot NVGpaint$radius :: <C-float>;
+  sealed slot NVGpaint$feather :: <C-float>;
+  sealed slot NVGpaint$innerColor :: <NVGcolor>;
+  sealed slot NVGpaint$outerColor :: <NVGcolor>;
+  sealed slot NVGpaint$image :: <C-signed-int>;
 end;
 
 define constant <NVGwinding> = <C-int>;
@@ -62,19 +62,19 @@ define constant $NVG-ALIGN-BASELINE = 64;
 
 define C-pointer-type <c-string> => <C-signed-char>;
 define C-struct <NVGglyphPosition>
-  slot NVGglyphPosition$str :: <c-string>;
-  slot NVGglyphPosition$x :: <C-float>;
-  slot NVGglyphPosition$minx :: <C-float>;
-  slot NVGglyphPosition$maxx :: <C-float>;
+  sealed slot NVGglyphPosition$str :: <c-string>;
+  sealed slot NVGglyphPosition$x :: <C-float>;
+  sealed slot NVGglyphPosition$minx :: <C-float>;
+  sealed slot NVGglyphPosition$maxx :: <C-float>;
 end;
 
 define C-struct <NVGtextRow>
-  slot NVGtextRow$start :: <c-string>;
-  slot NVGtextRow$end :: <c-string>;
-  slot NVGtextRow$next :: <c-string>;
-  slot NVGtextRow$width :: <C-float>;
-  slot NVGtextRow$minx :: <C-float>;
-  slot NVGtextRow$maxx :: <C-float>;
+  sealed slot NVGtextRow$start :: <c-string>;
+  sealed slot NVGtextRow$end :: <c-string>;
+  sealed slot NVGtextRow$next :: <c-string>;
+  sealed slot NVGtextRow$width :: <C-float>;
+  sealed slot NVGtextRow$minx :: <C-float>;
+  sealed slot NVGtextRow$maxx :: <C-float>;
 end;
 
 define constant <NVGimageFlags> = <C-int>;
@@ -640,29 +640,29 @@ define constant $NVG-TEXTURE-ALPHA = 1;
 define constant $NVG-TEXTURE-RGBA = 2;
 
 define C-struct <NVGscissor>
-  array slot NVGscissor$xform :: <C-float>, length: 6;
-  array slot NVGscissor$extent :: <C-float>, length: 2;
+  sealed array slot NVGscissor$xform :: <C-float>, length: 6;
+  sealed array slot NVGscissor$extent :: <C-float>, length: 2;
 end;
 
 define C-struct <NVGvertex>
-  slot NVGvertex$x :: <C-float>;
-  slot NVGvertex$y :: <C-float>;
-  slot NVGvertex$u :: <C-float>;
-  slot NVGvertex$v :: <C-float>;
+  sealed slot NVGvertex$x :: <C-float>;
+  sealed slot NVGvertex$y :: <C-float>;
+  sealed slot NVGvertex$u :: <C-float>;
+  sealed slot NVGvertex$v :: <C-float>;
 end;
 
 define C-pointer-type <NVGvertex*> => <NVGvertex>;
 define C-struct <NVGpath>
-  slot NVGpath$first :: <C-signed-int>;
-  slot NVGpath$count :: <C-signed-int>;
-  slot NVGpath$closed :: <C-unsigned-char>;
-  slot NVGpath$nbevel :: <C-signed-int>;
-  slot NVGpath$fill :: <NVGvertex*>;
-  slot NVGpath$nfill :: <C-signed-int>;
-  slot NVGpath$stroke :: <NVGvertex*>;
-  slot NVGpath$nstroke :: <C-signed-int>;
-  slot NVGpath$winding :: <C-signed-int>;
-  slot NVGpath$convex :: <C-signed-int>;
+  sealed slot NVGpath$first :: <C-signed-int>;
+  sealed slot NVGpath$count :: <C-signed-int>;
+  sealed slot NVGpath$closed :: <C-unsigned-char>;
+  sealed slot NVGpath$nbevel :: <C-signed-int>;
+  sealed slot NVGpath$fill :: <NVGvertex*>;
+  sealed slot NVGpath$nfill :: <C-signed-int>;
+  sealed slot NVGpath$stroke :: <NVGvertex*>;
+  sealed slot NVGpath$nstroke :: <C-signed-int>;
+  sealed slot NVGpath$winding :: <C-signed-int>;
+  sealed slot NVGpath$convex :: <C-signed-int>;
 end;
 
 define constant <renderCreate> = <C-function-pointer>;
@@ -681,20 +681,20 @@ define constant <renderStroke> = <C-function-pointer>;
 define constant <renderTriangles> = <C-function-pointer>;
 define constant <renderDelete> = <C-function-pointer>;
 define C-struct <NVGparams>
-  slot NVGparams$userPtr :: <C-void*>;
-  slot NVGparams$edgeAntiAlias :: <C-signed-int>;
-  slot NVGparams$renderCreate :: <renderCreate>;
-  slot NVGparams$renderCreateTexture :: <renderCreateTexture>;
-  slot NVGparams$renderDeleteTexture :: <renderDeleteTexture>;
-  slot NVGparams$renderUpdateTexture :: <renderUpdateTexture>;
-  slot NVGparams$renderGetTextureSize :: <renderGetTextureSize>;
-  slot NVGparams$renderViewport :: <renderViewport>;
-  slot NVGparams$renderCancel :: <renderCancel>;
-  slot NVGparams$renderFlush :: <renderFlush>;
-  slot NVGparams$renderFill :: <renderFill>;
-  slot NVGparams$renderStroke :: <renderStroke>;
-  slot NVGparams$renderTriangles :: <renderTriangles>;
-  slot NVGparams$renderDelete :: <renderDelete>;
+  sealed slot NVGparams$userPtr :: <C-void*>;
+  sealed slot NVGparams$edgeAntiAlias :: <C-signed-int>;
+  sealed slot NVGparams$renderCreate :: <renderCreate>;
+  sealed slot NVGparams$renderCreateTexture :: <renderCreateTexture>;
+  sealed slot NVGparams$renderDeleteTexture :: <renderDeleteTexture>;
+  sealed slot NVGparams$renderUpdateTexture :: <renderUpdateTexture>;
+  sealed slot NVGparams$renderGetTextureSize :: <renderGetTextureSize>;
+  sealed slot NVGparams$renderViewport :: <renderViewport>;
+  sealed slot NVGparams$renderCancel :: <renderCancel>;
+  sealed slot NVGparams$renderFlush :: <renderFlush>;
+  sealed slot NVGparams$renderFill :: <renderFill>;
+  sealed slot NVGparams$renderStroke :: <renderStroke>;
+  sealed slot NVGparams$renderTriangles :: <renderTriangles>;
+  sealed slot NVGparams$renderDelete :: <renderDelete>;
 end;
 
 define C-pointer-type <NVGparams*> => <NVGparams>;
