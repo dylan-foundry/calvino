@@ -3,6 +3,15 @@ Synopsis: NanoVG demo ported to Dylan
 Author: Bruce Mitchener, Jr.
 Copyright: See LICENSE file in this distribution.
 
+define macro with-paint
+  { with-paint (?var:variable = ?paint-init:expression) ?:body end }
+  => { begin
+         let ?var = ?paint-init;
+         ?body;
+         destroy(?var);
+       end }
+end macro with-paint;
+
 define function draw-eyes
     (vg :: <NVGcontext*>, x :: <single-float>, y :: <single-float>,
      w :: <single-float>, h :: <single-float>, mx :: <single-float>,
@@ -17,22 +26,24 @@ define function draw-eyes
   let br = if (ex < ey) ex else ey end * 0.5;
   let blink = 1 - (sin(t * 0.5) ^ 200) * 0.8;
 
-  let bg = nvgLinearGradient(vg, x, y + h * 0.5, x + w * 0.1, y + h,
-                             nvgRGBA(0, 0, 0, 32), nvgRGBA(0, 0, 0, 16));
-  nvgBeginPath(vg);
-  nvgEllipse(vg, lx + 3.0s0, ly + 16.0s0, ex, ey);
-  nvgEllipse(vg, rx + 3.0s0, ry + 16.0s0, ex, ey);
-  nvgFillPaint(vg, bg);
-  nvgFill(vg);
+  with-paint (bg = nvgLinearGradient(vg, x, y + h * 0.5, x + w * 0.1, y + h,
+                                     nvgRGBA(0, 0, 0, 32), nvgRGBA(0, 0, 0, 16)))
+    nvgBeginPath(vg);
+    nvgEllipse(vg, lx + 3.0s0, ly + 16.0s0, ex, ey);
+    nvgEllipse(vg, rx + 3.0s0, ry + 16.0s0, ex, ey);
+    nvgFillPaint(vg, bg);
+    nvgFill(vg);
+  end;
 
-  let bg = nvgLinearGradient(vg, x, y + h * 0.25, x + w * 0.1, y + h,
-                             nvgRGBA(220, 220, 220, 255),
-                             nvgRGBA(128, 128, 128, 255));
-  nvgBeginPath(vg);
-  nvgEllipse(vg, lx, ly, ex, ey);
-  nvgEllipse(vg, rx, ry, ex, ey);
-  nvgFillPaint(vg, bg);
-  nvgFill(vg);
+  with-paint (bg = nvgLinearGradient(vg, x, y + h * 0.25, x + w * 0.1, y + h,
+                                     nvgRGBA(220, 220, 220, 255),
+                                     nvgRGBA(128, 128, 128, 255)))
+    nvgBeginPath(vg);
+    nvgEllipse(vg, lx, ly, ex, ey);
+    nvgEllipse(vg, rx, ry, ex, ey);
+    nvgFillPaint(vg, bg);
+    nvgFill(vg);
+  end;
 
   let dx = as(<single-float>, (mx - rx) / (ex * 10.0));
   let dy = as(<single-float>, (my - ry) / (ey * 10.0));
@@ -62,23 +73,25 @@ define function draw-eyes
   nvgFillColor(vg, nvgRGBA(32, 32, 32, 255));
   nvgFill(vg);
 
-  let gloss = nvgRadialGradient(vg, lx - ex * 0.25, ly - ey * 0.5,
-                                ex * 0.1, ex * 0.75,
-                                nvgRGBA(255, 255, 255, 128),
-                                nvgRGBA(255, 255, 255, 0));
-  nvgBeginPath(vg);
-  nvgEllipse(vg, lx, ly, ex, ey);
-  nvgFillPaint(vg, gloss);
-  nvgFill(vg);
+  with-paint (gloss = nvgRadialGradient(vg, lx - ex * 0.25, ly - ey * 0.5,
+                                        ex * 0.1, ex * 0.75,
+                                        nvgRGBA(255, 255, 255, 128),
+                                        nvgRGBA(255, 255, 255, 0)))
+    nvgBeginPath(vg);
+    nvgEllipse(vg, lx, ly, ex, ey);
+    nvgFillPaint(vg, gloss);
+    nvgFill(vg);
+  end;
 
-  let gloss = nvgRadialGradient(vg, rx - ex * 0.25, ry - ey * 0.5,
-                                ex * 0.1, ex * 0.75,
-                                nvgRGBA(255, 255, 255, 128),
-                                nvgRGBA(255, 255, 255, 0));
-  nvgBeginPath(vg);
-  nvgEllipse(vg, rx, ry, ex, ey);
-  nvgFillPaint(vg, gloss);
-  nvgFill(vg);
+  with-paint (gloss = nvgRadialGradient(vg, rx - ex * 0.25, ry - ey * 0.5,
+                                        ex * 0.1, ex * 0.75,
+                                        nvgRGBA(255, 255, 255, 128),
+                                        nvgRGBA(255, 255, 255, 0)))
+    nvgBeginPath(vg);
+    nvgEllipse(vg, rx, ry, ex, ey);
+    nvgFillPaint(vg, gloss);
+    nvgFill(vg);
+  end;
 end;
 
 define function draw-graph
@@ -104,19 +117,20 @@ define function draw-graph
   end;
 
   // Graph background
-  let bg = nvgLinearGradient(vg, x, y, x, y + h,
-                             nvgRGBA(0, 160, 192, 0),
-                             nvgRGBA(0, 160, 192, 64));
-  nvgBeginPath(vg);
-  nvgMoveTo(vg, sx[0], sy[0]);
-  for (i from 1 below 6)
-    nvgBezierTo(vg, sx[i - 1] + dx * 0.5s0, sy[i - 1],
-                sx[i] - dx * 0.5s0, sy[i], sx[i], sy[i]);
+  with-paint (bg = nvgLinearGradient(vg, x, y, x, y + h,
+                                     nvgRGBA(0, 160, 192, 0),
+                                     nvgRGBA(0, 160, 192, 64)))
+    nvgBeginPath(vg);
+    nvgMoveTo(vg, sx[0], sy[0]);
+    for (i from 1 below 6)
+      nvgBezierTo(vg, sx[i - 1] + dx * 0.5s0, sy[i - 1],
+                  sx[i] - dx * 0.5s0, sy[i], sx[i], sy[i]);
+    end;
+    nvgLineTo(vg, x + w, y + h);
+    nvgLineTo(vg, x, y + h);
+    nvgFillPaint(vg, bg);
+    nvgFill(vg);
   end;
-  nvgLineTo(vg, x + w, y + h);
-  nvgLineTo(vg, x, y + h);
-  nvgFillPaint(vg, bg);
-  nvgFill(vg);
 
   // Graph line
   nvgBeginPath(vg);
@@ -141,12 +155,14 @@ define function draw-graph
 
   // Graph sample pos
   for (i from 1 below 6)
-    let bg = nvgRadialGradient(vg, sx[i], sy[i] + 2, 3.0s0, 8.0s0,
-                               nvgRGBA(0, 0, 0, 32), nvgRGBA(0, 0, 0, 0));
-    nvgBeginPath(vg);
-    nvgRect(vg, sx[i] - 10, sy[i] - 10 + 2, 20.0s0, 20.0s0);
-    nvgFillPaint(vg, bg);
-    nvgFill(vg);
+    with-paint (bg = nvgRadialGradient(vg, sx[i], sy[i] + 2, 3.0s0, 8.0s0,
+                                       nvgRGBA(0, 0, 0, 32),
+                                       nvgRGBA(0, 0, 0, 0)))
+      nvgBeginPath(vg);
+      nvgRect(vg, sx[i] - 10, sy[i] - 10 + 2, 20.0s0, 20.0s0);
+      nvgFillPaint(vg, bg);
+      nvgFill(vg);
+    end;
   end;
 
   nvgBeginPath(vg);
@@ -292,28 +308,32 @@ define function draw-window
   nvgFill(vg);
 
   // Drop shadow
-  let shadowPaint = nvgBoxGradient(vg, x,y + 2, w, h, cornerRadius * 2, 10.0,
-                                   nvgRGBA(0, 0, 0, 128), nvgRGBA(0, 0, 0, 0));
-  nvgBeginPath(vg);
-  nvgRect(vg, x - 10, y - 10, w + 20, h + 30);
-  nvgRoundedRect(vg, x, y, w, h, cornerRadius);
-  nvgPathWinding(vg, $NVG-HOLE);
-  nvgFillPaint(vg, shadowPaint);
-  nvgFill(vg);
+  with-paint (shadowPaint = nvgBoxGradient(vg, x,y + 2, w, h,
+                                           cornerRadius * 2, 10.0,
+                                           nvgRGBA(0, 0, 0, 128),
+                                           nvgRGBA(0, 0, 0, 0)))
+    nvgBeginPath(vg);
+    nvgRect(vg, x - 10, y - 10, w + 20, h + 30);
+    nvgRoundedRect(vg, x, y, w, h, cornerRadius);
+    nvgPathWinding(vg, $NVG-HOLE);
+    nvgFillPaint(vg, shadowPaint);
+    nvgFill(vg);
+  end;
 
   // Header
-  let headerPaint = nvgLinearGradient(vg, x, y, x, y + 15,
-                                      nvgRGBA(255, 255, 255, 8),
-                                      nvgRGBA(0, 0, 0, 16));
-  nvgBeginPath(vg);
-  nvgRoundedRect(vg, x + 1, y + 1, w - 2, 30.0, cornerRadius - 1);
-  nvgFillPaint(vg, headerPaint);
-  nvgFill(vg);
-  nvgBeginPath(vg);
-  nvgMoveTo(vg, x + 0.5s0, y + 0.5s0 + 30);
-  nvgLineTo(vg, x + 0.5s0 + w - 1, y + 0.5s0 + 30);
-  nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 32));
-  nvgStroke(vg);
+  with-paint (headerPaint = nvgLinearGradient(vg, x, y, x, y + 15,
+                                              nvgRGBA(255, 255, 255, 8),
+                                              nvgRGBA(0, 0, 0, 16)))
+    nvgBeginPath(vg);
+    nvgRoundedRect(vg, x + 1, y + 1, w - 2, 30.0, cornerRadius - 1);
+    nvgFillPaint(vg, headerPaint);
+    nvgFill(vg);
+    nvgBeginPath(vg);
+    nvgMoveTo(vg, x + 0.5s0, y + 0.5s0 + 30);
+    nvgLineTo(vg, x + 0.5s0 + w - 1, y + 0.5s0 + 30);
+    nvgStrokeColor(vg, nvgRGBA(0, 0, 0, 32));
+    nvgStroke(vg);
+  end;
 
   nvgFontSize(vg, 18.0s0);
   nvgFontFace(vg, "sans-bold");
