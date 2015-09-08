@@ -10,6 +10,9 @@ end;
 define C-struct <GLFWwindow>
 end;
 
+define C-struct <GLFWcursor>
+end;
+
 define C-pointer-type <c-string> => <C-signed-char>;
 define constant <GLFWerrorfun> = <C-function-pointer>;
 define C-pointer-type <GLFWwindow*> => <GLFWwindow>;
@@ -26,23 +29,33 @@ define constant <GLFWcursorenterfun> = <C-function-pointer>;
 define constant <GLFWscrollfun> = <C-function-pointer>;
 define constant <GLFWkeyfun> = <C-function-pointer>;
 define constant <GLFWcharfun> = <C-function-pointer>;
+define constant <GLFWcharmodsfun> = <C-function-pointer>;
+define C-pointer-type <char**> => <c-string>;
+define constant <GLFWdropfun> = <C-function-pointer>;
 define C-pointer-type <GLFWmonitor*> => <GLFWmonitor>;
 define constant <GLFWmonitorfun> = <C-function-pointer>;
 define C-struct <GLFWvidmode>
-  slot GLFWvidmode$width :: <C-signed-int>;
-  slot GLFWvidmode$height :: <C-signed-int>;
-  slot GLFWvidmode$redBits :: <C-signed-int>;
-  slot GLFWvidmode$greenBits :: <C-signed-int>;
-  slot GLFWvidmode$blueBits :: <C-signed-int>;
-  slot GLFWvidmode$refreshRate :: <C-signed-int>;
+  sealed slot GLFWvidmode$width :: <C-signed-int>;
+  sealed slot GLFWvidmode$height :: <C-signed-int>;
+  sealed slot GLFWvidmode$redBits :: <C-signed-int>;
+  sealed slot GLFWvidmode$greenBits :: <C-signed-int>;
+  sealed slot GLFWvidmode$blueBits :: <C-signed-int>;
+  sealed slot GLFWvidmode$refreshRate :: <C-signed-int>;
 end;
 
 define C-pointer-type <unsigned-short*> => <C-unsigned-short>;
 define C-struct <GLFWgammaramp>
-  slot GLFWgammaramp$red :: <unsigned-short*>;
-  slot GLFWgammaramp$green :: <unsigned-short*>;
-  slot GLFWgammaramp$blue :: <unsigned-short*>;
-  slot GLFWgammaramp$size :: <C-unsigned-int>;
+  sealed slot GLFWgammaramp$red :: <unsigned-short*>;
+  sealed slot GLFWgammaramp$green :: <unsigned-short*>;
+  sealed slot GLFWgammaramp$blue :: <unsigned-short*>;
+  sealed slot GLFWgammaramp$size :: <C-unsigned-int>;
+end;
+
+define C-pointer-type <unsigned-char*> => <C-unsigned-char>;
+define C-struct <GLFWimage>
+  sealed slot GLFWimage$width :: <C-signed-int>;
+  sealed slot GLFWimage$height :: <C-signed-int>;
+  sealed slot GLFWimage$pixels :: <unsigned-char*>;
 end;
 
 define C-function glfwInit
@@ -94,8 +107,8 @@ end;
 
 define C-function glfwGetMonitorPhysicalSize
   input parameter monitor_ :: <GLFWmonitor*>;
-  output parameter width_ :: <int*>;
-  output parameter height_ :: <int*>;
+  output parameter widthMM_ :: <int*>;
+  output parameter heightMM_ :: <int*>;
   c-name: "glfwGetMonitorPhysicalSize";
 end;
 
@@ -222,6 +235,15 @@ define C-function glfwGetFramebufferSize
   c-name: "glfwGetFramebufferSize";
 end;
 
+define C-function glfwGetWindowFrameSize
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter left_ :: <int*>;
+  input parameter top_ :: <int*>;
+  input parameter right_ :: <int*>;
+  input parameter bottom_ :: <int*>;
+  c-name: "glfwGetWindowFrameSize";
+end;
+
 define C-function glfwIconifyWindow
   input parameter window_ :: <GLFWwindow*>;
   c-name: "glfwIconifyWindow";
@@ -324,6 +346,10 @@ define C-function glfwWaitEvents
   c-name: "glfwWaitEvents";
 end;
 
+define C-function glfwPostEmptyEvent
+  c-name: "glfwPostEmptyEvent";
+end;
+
 define C-function glfwGetInputMode
   input parameter window_ :: <GLFWwindow*>;
   input parameter mode_ :: <C-signed-int>;
@@ -367,6 +393,33 @@ define C-function glfwSetCursorPos
   c-name: "glfwSetCursorPos";
 end;
 
+define C-pointer-type <GLFWcursor*> => <GLFWcursor>;
+define C-pointer-type <GLFWimage*> => <GLFWimage>;
+define C-function glfwCreateCursor
+  input parameter image_ :: <GLFWimage*>;
+  input parameter xhot_ :: <C-signed-int>;
+  input parameter yhot_ :: <C-signed-int>;
+  result res :: <GLFWcursor*>;
+  c-name: "glfwCreateCursor";
+end;
+
+define C-function glfwCreateStandardCursor
+  input parameter shape_ :: <C-signed-int>;
+  result res :: <GLFWcursor*>;
+  c-name: "glfwCreateStandardCursor";
+end;
+
+define C-function glfwDestroyCursor
+  input parameter cursor_ :: <GLFWcursor*>;
+  c-name: "glfwDestroyCursor";
+end;
+
+define C-function glfwSetCursor
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cursor_ :: <GLFWcursor*>;
+  c-name: "glfwSetCursor";
+end;
+
 define C-function glfwSetKeyCallback
   input parameter window_ :: <GLFWwindow*>;
   input parameter cbfun_ :: <GLFWkeyfun>;
@@ -379,6 +432,13 @@ define C-function glfwSetCharCallback
   input parameter cbfun_ :: <GLFWcharfun>;
   result res :: <GLFWcharfun>;
   c-name: "glfwSetCharCallback";
+end;
+
+define C-function glfwSetCharModsCallback
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWcharmodsfun>;
+  result res :: <GLFWcharmodsfun>;
+  c-name: "glfwSetCharModsCallback";
 end;
 
 define C-function glfwSetMouseButtonCallback
@@ -409,6 +469,13 @@ define C-function glfwSetScrollCallback
   c-name: "glfwSetScrollCallback";
 end;
 
+define C-function glfwSetDropCallback
+  input parameter window_ :: <GLFWwindow*>;
+  input parameter cbfun_ :: <GLFWdropfun>;
+  result res :: <GLFWdropfun>;
+  c-name: "glfwSetDropCallback";
+end;
+
 define C-function glfwJoystickPresent
   input parameter joy_ :: <C-signed-int>;
   result res :: <C-signed-int>;
@@ -423,7 +490,6 @@ define C-function glfwGetJoystickAxes
   c-name: "glfwGetJoystickAxes";
 end;
 
-define C-pointer-type <unsigned-char*> => <C-unsigned-char>;
 define C-function glfwGetJoystickButtons
   input parameter joy_ :: <C-signed-int>;
   input parameter count_ :: <int*>;
@@ -493,7 +559,7 @@ end;
 
 define constant $GLFW-VERSION-MAJOR = 3;
 
-define constant $GLFW-VERSION-MINOR = 0;
+define constant $GLFW-VERSION-MINOR = 1;
 
 define constant $GLFW-VERSION-REVISION = 1;
 
@@ -841,6 +907,10 @@ define constant $GLFW-VISIBLE = 131076;
 
 define constant $GLFW-DECORATED = 131077;
 
+define constant $GLFW-AUTO-ICONIFY = 131078;
+
+define constant $GLFW-FLOATING = 131079;
+
 define constant $GLFW-RED-BITS = 135169;
 
 define constant $GLFW-GREEN-BITS = 135170;
@@ -871,6 +941,8 @@ define constant $GLFW-SRGB-CAPABLE = 135182;
 
 define constant $GLFW-REFRESH-RATE = 135183;
 
+define constant $GLFW-DOUBLEBUFFER = 135184;
+
 define constant $GLFW-CLIENT-API = 139265;
 
 define constant $GLFW-CONTEXT-VERSION-MAJOR = 139266;
@@ -886,6 +958,8 @@ define constant $GLFW-OPENGL-FORWARD-COMPAT = 139270;
 define constant $GLFW-OPENGL-DEBUG-CONTEXT = 139271;
 
 define constant $GLFW-OPENGL-PROFILE = 139272;
+
+define constant $GLFW-CONTEXT-RELEASE-BEHAVIOR = 139273;
 
 define constant $GLFW-OPENGL-API = 196609;
 
@@ -915,7 +989,27 @@ define constant $GLFW-CURSOR-HIDDEN = 212994;
 
 define constant $GLFW-CURSOR-DISABLED = 212995;
 
+define constant $GLFW-ANY-RELEASE-BEHAVIOR = 0;
+
+define constant $GLFW-RELEASE-BEHAVIOR-FLUSH = 217089;
+
+define constant $GLFW-RELEASE-BEHAVIOR-NONE = 217090;
+
+define constant $GLFW-ARROW-CURSOR = 221185;
+
+define constant $GLFW-IBEAM-CURSOR = 221186;
+
+define constant $GLFW-CROSSHAIR-CURSOR = 221187;
+
+define constant $GLFW-HAND-CURSOR = 221188;
+
+define constant $GLFW-HRESIZE-CURSOR = 221189;
+
+define constant $GLFW-VRESIZE-CURSOR = 221190;
+
 define constant $GLFW-CONNECTED = 262145;
 
 define constant $GLFW-DISCONNECTED = 262146;
+
+define constant $GLFW-DONT-CARE = -1;
 
