@@ -8,9 +8,7 @@ define interface
       "GLFW/glfw3.h"
     },
 
-    import: all,
-
-    equate: {"char *" => <c-string>};
+    import: all;
 
   function "glfwGetVersion",
     output-argument: 1,

@@ -13,7 +13,6 @@ end;
 define C-struct <GLFWcursor>
 end;
 
-define C-pointer-type <c-string> => <C-signed-char>;
 define constant <GLFWerrorfun> = <C-function-pointer>;
 define C-pointer-type <GLFWwindow*> => <GLFWwindow>;
 define constant <GLFWwindowposfun> = <C-function-pointer>;
@@ -76,7 +75,7 @@ define C-function glfwGetVersion
 end;
 
 define C-function glfwGetVersionString
-  result res :: <c-string>;
+  result res :: <C-string>;
   c-name: "glfwGetVersionString";
 end;
 
@@ -114,7 +113,7 @@ end;
 
 define C-function glfwGetMonitorName
   input parameter monitor_ :: <GLFWmonitor*>;
-  result res :: <c-string>;
+  result res :: <C-string>;
   c-name: "glfwGetMonitorName";
 end;
 
@@ -170,7 +169,7 @@ end;
 define C-function glfwCreateWindow
   input parameter width_ :: <C-signed-int>;
   input parameter height_ :: <C-signed-int>;
-  input parameter title_ :: <c-string>;
+  input parameter title_ :: <C-string>;
   input parameter monitor_ :: <GLFWmonitor*>;
   input parameter share_ :: <GLFWwindow*>;
   result res :: <GLFWwindow*>;
@@ -196,7 +195,7 @@ end;
 
 define C-function glfwSetWindowTitle
   input parameter window_ :: <GLFWwindow*>;
-  input parameter title_ :: <c-string>;
+  input parameter title_ :: <C-string>;
   c-name: "glfwSetWindowTitle";
 end;
 
@@ -499,19 +498,19 @@ end;
 
 define C-function glfwGetJoystickName
   input parameter joy_ :: <C-signed-int>;
-  result res :: <c-string>;
+  result res :: <C-string>;
   c-name: "glfwGetJoystickName";
 end;
 
 define C-function glfwSetClipboardString
   input parameter window_ :: <GLFWwindow*>;
-  input parameter string_ :: <c-string>;
+  input parameter string_ :: <C-string>;
   c-name: "glfwSetClipboardString";
 end;
 
 define C-function glfwGetClipboardString
   input parameter window_ :: <GLFWwindow*>;
-  result res :: <c-string>;
+  result res :: <C-string>;
   c-name: "glfwGetClipboardString";
 end;
 
@@ -546,13 +545,13 @@ define C-function glfwSwapInterval
 end;
 
 define C-function glfwExtensionSupported
-  input parameter extension_ :: <c-string>;
+  input parameter extension_ :: <C-string>;
   result res :: <C-signed-int>;
   c-name: "glfwExtensionSupported";
 end;
 
 define C-function glfwGetProcAddress
-  input parameter procname_ :: <c-string>;
+  input parameter procname_ :: <C-string>;
   result res :: <GLFWglproc>;
   c-name: "glfwGetProcAddress";
 end;
