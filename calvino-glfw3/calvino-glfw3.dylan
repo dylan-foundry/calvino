@@ -236,10 +236,10 @@ end;
 
 define C-function glfwGetWindowFrameSize
   input parameter window_ :: <GLFWwindow*>;
-  input parameter left_ :: <int*>;
-  input parameter top_ :: <int*>;
-  input parameter right_ :: <int*>;
-  input parameter bottom_ :: <int*>;
+  output parameter left_ :: <int*>;
+  output parameter top_ :: <int*>;
+  output parameter right_ :: <int*>;
+  output parameter bottom_ :: <int*>;
   c-name: "glfwGetWindowFrameSize";
 end;
 
@@ -560,7 +560,7 @@ define constant $GLFW-VERSION-MAJOR = 3;
 
 define constant $GLFW-VERSION-MINOR = 1;
 
-define constant $GLFW-VERSION-REVISION = 1;
+define constant $GLFW-VERSION-REVISION = 2;
 
 define constant $GLFW-RELEASE = 0;
 
