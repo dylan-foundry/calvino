@@ -11,4 +11,13 @@ define interface
     import: all,
 
     equate: {"char *" => <c-string>};
+
+  function "cgltf_parse",
+    output-argument: 4;
+
+  function "cgltf_parse_file",
+    output-argument: 3;
+
+  function "cgltf_load_buffer_base64",
+    output-argument: 4;
 end interface;

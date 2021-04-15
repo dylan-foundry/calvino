@@ -623,7 +623,7 @@ define C-function cgltf-parse
   input parameter options_ :: <cgltf-options*>;
   input parameter data_ :: <C-void*>;
   input parameter size_ :: <cgltf-size>;
-  input parameter out-data_ :: <cgltf-data**>;
+  output parameter out-data_ :: <cgltf-data**>;
   result res :: <cgltf-result>;
   c-name: "cgltf_parse";
 end;
@@ -631,7 +631,7 @@ end;
 define C-function cgltf-parse-file
   input parameter options_ :: <cgltf-options*>;
   input parameter path_ :: <c-string>;
-  input parameter out-data_ :: <cgltf-data**>;
+  output parameter out-data_ :: <cgltf-data**>;
   result res :: <cgltf-result>;
   c-name: "cgltf_parse_file";
 end;
@@ -648,7 +648,7 @@ define C-function cgltf-load-buffer-base64
   input parameter options_ :: <cgltf-options*>;
   input parameter size_ :: <cgltf-size>;
   input parameter base64_ :: <c-string>;
-  input parameter out-data_ :: <void**>;
+  output parameter out-data_ :: <void**>;
   result res :: <cgltf-result>;
   c-name: "cgltf_load_buffer_base64";
 end;
